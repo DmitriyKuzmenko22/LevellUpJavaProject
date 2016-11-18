@@ -1,0 +1,16 @@
+1.protected class User {
+long accountld;
+static long accountld;
+String city=" ";
+
+float balance;
+int[]picture = int[2048];
+ String role = "Client";
+
+
+public user(String role ) {
+this.String = String;
+}
+
+}
+
