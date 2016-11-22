@@ -1,11 +1,13 @@
-1.protected class User {
-long accountld;
+-- protected class User {
+++long accountld;
 static long accountld;
-String city=" ";
+String city="";
 
 float balance;
-int[]picture = int[2048];
+int[]picture =new int[2048];
  String role = "Client";
+
+//final static String ROLE = "Client";
 
 
 public user(String role ) {
