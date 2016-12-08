@@ -4,7 +4,7 @@
 public class Puppy extends Dog{
 
     protected int ageMonth;
-
+//
     public void destroy(){
         System.out.println("Puppy "+getName()+ " has just destroyed your flat.");
     }

@@ -29,7 +29,7 @@ public class Dog extends Animal {
         this.name = name;
         this.species = species;
     }
-
+//
     public Dog(String kind, int ige, String name, String species) {
         super(kind, ige);
         this.name = name;

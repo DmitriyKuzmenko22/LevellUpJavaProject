@@ -4,7 +4,7 @@
 public class Moon extends Planet {
 
     public String p7="Луна";
-
+//
     public Moon(String p1, String p2, String p3, String p4, String p5, String p6, String p7) {
         super(p1, p2, p3, p4, p5, p6);
         this.p7 = p7;

@@ -10,7 +10,7 @@ public class Planet {
     public String p5="Венера";
     public String p6="Сатурн";
     public Planet(){
-
+//
     }
 
     public Planet(String p1, String p2, String p3, String p4, String p5, String p6) {

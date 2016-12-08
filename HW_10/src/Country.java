@@ -2,7 +2,7 @@
  * Created by Dmitriy on 07.12.2016.
  */
 public class Country {
-
+//
         private String name;
         private int population;
 

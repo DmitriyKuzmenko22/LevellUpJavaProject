@@ -8,7 +8,7 @@ public class Animal {
 
   }
   void jump(){
-
+//
   }
 
     public Animal(String kind, int ige, int weight) {

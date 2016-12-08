@@ -13,7 +13,7 @@ public class main {
         System.out.println(planet.toString());
 
         Moon moon=new Moon();
-        moon.Kolich();
+        moon.Kolich();//
         System.out.println(moon);
 //        dog.run();
 //        dog.jump();
