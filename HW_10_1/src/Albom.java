@@ -14,7 +14,6 @@ public class Albom {
         }
     }
     public void setPhotoTitle(String title,int photoNum,int pageNum){
-
         if(pageNum<pages.length&&pageNum>-1&&pages[pageNum]!=null){
             pages[pageNum].setPhotoTitle(title,photoNum);
         }
@@ -26,13 +25,11 @@ public class Albom {
     }
 
     public int proverkaFoto(){
-
         for(int i=0;i<pages.length && pages[i]!= null ;i++){
             for(int j=0;j<pages[i].photos.length;j++){
                 if(pages[i].photos[j]!=null){
                     kolFoto++;
                 }
-
             }
         }
         return kolFoto;

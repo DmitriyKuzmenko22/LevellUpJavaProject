@@ -20,6 +20,7 @@ public class Page {
         }
     }
     public boolean isNotFull(){
+
         return notFull;
     }
 
