@@ -203,4 +203,126 @@ public class AListTest {
         //then
         assertEquals("ERROR!!! Actual result is wrong! Expected is 1", expected, actual);
     }
+    @Test
+    public void testRemoveFirstElemnt() throws Exception {
+        //given
+        int expected = 2;
+
+        //when
+        list.add(1);
+        list.add(22);
+        list.add(222);
+        list.removeFirstElemnt();
+     //   int actual=2;
+        int actual = list.size();
+
+
+        //then
+        assertEquals("ERROR!!! Actual result is wrong! Expected is 1", expected, actual);
+    }
+    @Test
+    public void testAddFirstElemnt() throws Exception {
+        //given
+        int expected = 4;
+
+        //when
+        list.add(1);
+        list.add(22);
+        list.add(222);
+        list.addFirstElemnt(3);
+        //   int actual=2;
+        int actual = list.size();
+
+
+        //then
+        assertEquals("ERROR!!! Actual result is wrong! Expected is 1", expected, actual);
+    }
+    @Test
+    public void testRemoveToIndex() throws Exception {
+        //given
+        int expected = 2;
+
+        //when
+        list.add(1);
+        list.add(22);
+        list.add(222);
+        list.removeToIndex(1);
+        //   int actual=2;
+        int actual = list.size();
+
+
+        //then
+        assertEquals("ERROR!!! Actual result is wrong! Expected is 1", expected, actual);
+    }
+
+    @Test
+    public void testAddElemToIndex() throws Exception {
+        //given
+        int expected = 67;
+
+        //when
+        list.add(1);
+        list.add(22);
+        list.add(222);
+        list.addElemontForIndex(67,2);
+        //   int actual=2;
+        int actual = list.get(2);
+
+
+        //then
+        assertEquals("ERROR!!! Actual result is wrong! Expected is 1", expected, actual);
+    }
+    @Test
+    public void testGiveElementToIndex() throws Exception {
+        //given
+        int expected = 222;
+
+        //when
+        list.add(1);
+        list.add(22);
+        list.add(222);
+        list.indexOf(2);
+        //   int actual=2;
+        int actual = list.get(2);
+
+
+        //then
+        assertEquals("ERROR!!! Actual result is wrong! Expected is 1", expected, actual);
+    }
+    @Test
+    public void testRazdelenieToEemnt() throws Exception {
+        //given
+        String expected = " 1test 22test 222test ";
+        String razdel="test";
+
+
+        //when
+        list.add(1);
+        list.add(22);
+        list.add(222);
+//        list.addRazdelenieElemen("test");
+        //   int actual=2;
+        String  actual = list.addRazdelenieElemen("test");
+
+
+        //then
+        assertEquals("ERROR!!! Actual result is wrong! Expected is 1", expected, actual);
+    }
+    @Test
+    public void testSortElemnt() throws Exception {
+        //given
+        int expected = 2;
+
+        //when
+        list.add(1222);
+        list.add(22);
+        list.add(222);
+
+               //   int actual=2;
+        int actual = list.sortArr();
+
+
+        //then
+        assertEquals("ERROR!!! Actual result is wrong! Expected is 1", expected, actual);
+    }
 }
