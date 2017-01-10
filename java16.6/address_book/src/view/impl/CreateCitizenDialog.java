@@ -85,6 +85,6 @@ public class CreateCitizenDialog extends Dialog {
         panel.add(lastName);
         panel.add(age);
         panel.add(streetId);
-
+//
     }
 }
