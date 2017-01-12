@@ -5,7 +5,7 @@ public class SimplyMistake{
 
         try {
 //            String szShortString="123";
-            char chr = szShortString.charAt(1);
+            char chr = szShortString.charAt(0);
             System.out.println(chr);
         } catch (Exception e) {
             System.out.println("нет такого символа");
