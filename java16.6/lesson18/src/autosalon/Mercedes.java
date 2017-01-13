@@ -8,7 +8,7 @@ public class Mercedes extends Car{
     public Mercedes(double fuelConsumption, int maxSpeed, Configuration configuration) {
         super(fuelConsumption, maxSpeed, configuration);
     }
-
+//
     @Override
     public double getPrice() {
        switch (getConfiguration()){

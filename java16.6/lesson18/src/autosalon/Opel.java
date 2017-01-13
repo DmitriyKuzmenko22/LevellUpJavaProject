@@ -8,7 +8,7 @@ public class Opel extends Car{
     public Opel(double fuelConsumption, int maxSpeed, Configuration configuration) {
         super(fuelConsumption, maxSpeed, configuration);
     }
-
+//
     @Override
     public double getPrice() {
        switch (getConfiguration()){

@@ -8,6 +8,7 @@ public class Lanos extends Car{
     public Lanos(double fuelConsumption, int maxSpeed, Configuration configuration) {
         super(fuelConsumption, maxSpeed, configuration);
     }
+    //
 
     @Override
     public double getPrice() {

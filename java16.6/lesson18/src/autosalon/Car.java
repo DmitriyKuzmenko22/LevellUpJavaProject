@@ -14,7 +14,7 @@ public abstract class Car {
         this.maxSpeed = maxSpeed;
         this.configuration = configuration;
     }
-
+//
     public abstract double getPrice();
 
 

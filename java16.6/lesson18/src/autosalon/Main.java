@@ -15,6 +15,7 @@ public class Main {
                 new Mercedes(18,180,Configuration.BASIX)
         };
 
+        /////
         AutoSalon autoSalon = new AutoSalon(cars);
 
         System.out.println("Total price " + autoSalon.calculateCarsPrice());
