@@ -76,10 +76,10 @@ public class CreateCitizenDialog extends Dialog {
          age = new TextField();
          streetId = new TextField();
 
-        firstName.setBounds(30, 0, 65, 25);
-        lastName.setBounds(30, 35, 65, 25);
-        age.setBounds(30, 70, 65, 25);
-        streetId.setBounds(30, 105, 65, 25);
+        firstName.setBounds(110, 0, 100, 25);
+        lastName.setBounds(110, 35, 100, 25);
+        age.setBounds(110, 70, 100, 25);
+        streetId.setBounds(110, 105, 100, 25);
 
         panel.add(firstName);
         panel.add(lastName);
