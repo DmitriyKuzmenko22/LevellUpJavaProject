@@ -10,25 +10,23 @@ public class Waiter extends Personal {
         this.bar = bar;
     }
 
-    public void addOrder(String nameOfAlcohol, int amount) {
+    public void addOrder(String nameOfAlcohol, int amount1) {
         for (int j = 0; j < bar.getAlcohol().length; j++) {
             if (bar.getAlcohol()[j] != null && bar.getAlcohol()[j].getName().equals(nameOfAlcohol)) { //проверяем есть ли такой алкоголь в баре
                 for (int i = 0; i < bar.getOrders().length; i++) {
                     if (bar.getOrders()[i] == null) {
-                        bar.setOrderById(new Orders(nameOfAlcohol, amount), i);
-                        System.out.println("заказ добавлен на "+ nameOfAlcohol);
+                        bar.setOrderById(new Orders(nameOfAlcohol, amount1), i);
+                        System.out.println("заказ добавлен на "+ nameOfAlcohol+" под номером "+i);
                         break;
                     }
-
-
                 }
+            break;
             }
-            if (j==bar.getAlcohol().length && (bar.getAlcohol()[j] == null || !bar.getAlcohol()[j].getName().equals(nameOfAlcohol))){ //последний элемент массива, равен нулю, или имя не то, что нам нужно
+            else if (j==bar.getAlcohol().length-1 && (bar.getAlcohol()[j] == null || !bar.getAlcohol()[j].getName().equals(nameOfAlcohol))){  //последний элемент массива, равен нулю, или имя не то, что нам нужно
                 System.out.println("net takogo alkohola");
                 break;
-
             }
-
+            //break;
         }
     }
 

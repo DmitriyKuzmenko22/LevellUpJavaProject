@@ -1,3 +1,4 @@
+import drinks.Alcohol;
 
 public class Bar {
     private Waiter waiter[] = new Waiter[3];
@@ -15,17 +16,17 @@ public class Bar {
 
     //__________________________________//
 
-    public int getDrink(String nameAlcohol){
-        for (int i=0;i<alcohol.length;i++){
-           if(alcohol[i].getName().equals(nameAlcohol))
+    public int getDrink(String nameAlcohol) {
+        for (int i = 0; i < alcohol.length; i++) {
+            if (alcohol[i].getName().equals(nameAlcohol))
                 return alcohol[i].getAmount();
-            }
+        }
         return -1;
     }
 
-    public Alcohol getDrinkByName(String nameAlcohol){
-        for (int i=0;i<alcohol.length;i++){
-            if(alcohol[i].getName().equals(nameAlcohol))
+    public Alcohol getDrinkByName(String nameAlcohol) {
+        for (int i = 0; i < alcohol.length; i++) {
+            if (alcohol[i].getName().equals(nameAlcohol))
                 return alcohol[i];
         }
         return null;
@@ -33,11 +34,13 @@ public class Bar {
 
 
     public void addOrders(int waiterID, String nameAlcohol, int amount) {
-        if (waiter[waiterID] != null) waiter[waiterID].addOrder(nameAlcohol, amount);
+        if (waiter[waiterID] != null) {
+            waiter[waiterID].addOrder(nameAlcohol, amount);
+        }
     }
 
-    public void perfomOrder(Bar bar,int barmanId){
-        if (barman[barmanId]!=null) {
+    public void perfomOrder(Bar bar, int barmanId) {
+        if (barman[barmanId] != null) {
             barman[barmanId].performOrder();
         } else System.out.println("такого бармена нет " + barmanId);
 
@@ -71,19 +74,21 @@ public class Bar {
                     alcohol[j] = new Alcohol(Alcoholname, amount, volume, cost);
                     curentAlcoholNumber++;
                     System.out.println("Добавлен алкоголь " + Alcoholname);
+                    break;
 
                 }
             }
         }
     }
 
-    public void tipsForPersonal() {
-        System.out.println("Каждому бармену сумма чаевых - " + tips / curentBarmansNumber);
+    public void tipsForPersonal(int tips) throws NegativeTipsException {
+        if (tips < 0) throw new NegativeTipsException("Tips couldn't be negative. Passed value is: " + tips);
+        else System.out.println("Каждому бармену сумма чаевых - " + tips / curentBarmansNumber);
         tips = 0;
     }
 
     public void addPersonal(String name, int age, String position, String exclusiveCoctail, Bar bar) throws NotExistBarException {
-        if (bar==null) throw new NotExistBarException("For creating new employee was passed not");
+        if (bar == null) throw new NotExistBarException("For creating new employee was passed not");
         switch (position) {
             case "бармен":
                 if (curentBarmansNumber < barman.length) {
@@ -225,6 +230,13 @@ public class Bar {
     class NotExistBarException extends Exception {
         public NotExistBarException(String s) {
             System.out.println("For creating new employee was passed not");
+        }
+    }
+
+    public class NegativeTipsException extends Exception {
+        public NegativeTipsException(String s) {
+            System.out.println("Tips couldn't be negative. Passed value is: " + tips);
+
         }
     }
 }
