@@ -1,5 +1,7 @@
 package view;
 
+import view.impl.CitizenTablePanel;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -16,6 +18,9 @@ public class MyDataTableFrame extends JFrame {
         Container container = getContentPane();
 
         TabbedPane tabbedPane = new TabbedPane();
+
+        CitizenTablePanel citizenTablePanel=new CitizenTablePanel();
+        tabbedPane.add(citizenTablePanel);
 
         container.add(tabbedPane, BorderLayout.CENTER);
         container.add(new ToolPanel(tabbedPane), BorderLayout.PAGE_END);

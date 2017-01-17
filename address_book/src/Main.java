@@ -1,3 +1,4 @@
+import view.MyDataTableFrame;
 import view.impl.CitizenTablePanel;
 import view.impl.CreateCitizenDialog;
 
@@ -9,13 +10,14 @@ import javax.swing.*;
 public class Main {
 
     public static void main(String[] args) {
-        JFrame frame=new JFrame();
-        frame.setLayout(null);
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        CitizenTablePanel panel = new CitizenTablePanel();
-        panel.setVisible(true);
-
-        frame.add(panel);
-        frame.setVisible(true);
+        new MyDataTableFrame();
+//        JFrame frame=new JFrame();
+//        frame.setLayout(null);
+//        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+//        CitizenTablePanel panel = new CitizenTablePanel();
+//        panel.setVisible(true);
+//
+//        frame.add(panel);
+//        frame.setVisible(true);
     }
 }

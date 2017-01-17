@@ -4,7 +4,6 @@ import javax.swing.*;
 
 import entity.Citizen;
 import view.Action;
-import view.CitizenTableModelContainer;
 
 import java.awt.*;
 import java.util.List;
@@ -36,6 +35,8 @@ public class CitizenTablePanel extends JPanel implements Action{
 
         if(dialog.isOkPresed()) {
             tableContainer.getData().add(dialog.getEntity());
+            tableContainer.getData().add(dialog.getEntity());
+            table.updateUI();
 
         }
 
@@ -43,11 +44,12 @@ public class CitizenTablePanel extends JPanel implements Action{
 
     @Override
     public List<Citizen> read() {
-        return null;
+        return tableContainer.getData();
     }
 
     @Override
     public void update() {
+
 
     }
 
@@ -55,5 +57,7 @@ public class CitizenTablePanel extends JPanel implements Action{
     public void delete() {
         Citizen citizen=tableContainer.getSelectedRowData(table.getSelectedRow());
         tableContainer.getData().remove(citizen);
+        tableContainer.getData().remove(citizen);
+        table.updateUI();
     }
 }

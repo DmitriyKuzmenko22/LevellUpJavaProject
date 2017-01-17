@@ -4,7 +4,7 @@ package view;
  * Created by Дмитрий on 14.01.2017.
  */
 
-import javax.swing.*;mport javax.swing.*;
+import javax.swing.*;import javax.swing.*;
         import java.awt.*;
         import java.awt.event.ActionListener;
 
@@ -22,9 +22,11 @@ public class ToolPanel extends JPanel {
     private static final int BTN_Y = 310;
     private static final int BTN_X_STEP = 100;
 
-    public ToolPanel(TabbedPane workingpanel, TabbedPane workingpanel1) {
+    public ToolPanel(TabbedPane workingpanel) {
+        this.workingpanel=workingpanel;
         initLayout();
     }
+
 
 
 
@@ -44,6 +46,13 @@ public class ToolPanel extends JPanel {
         addConnectionTypeList(connectionType);
         connectionType.setBounds(0,BTN_Y,CONNECTION_BTN_W,ACTION_BTN_H);
         add(connectionType);
+    }
+
+    public void addConnectionTypeList(JComboBox<String> connectionType){
+        String[] resouces={"H2","XML"};
+        for(String type : resouces){
+            connectionType.addItem(type);
+        }
     }
 
 
@@ -70,13 +79,28 @@ public class ToolPanel extends JPanel {
         }
     }
 
+    private ActionListener deleteListener() {
+        return e-> workingpanel.delete();
+    }
+
+    private ActionListener updatelistener() {
+        return e-> workingpanel.update();
+    }
+
+    private ActionListener readListener() {
+        return e-> workingpanel.read();
+    }
+
+    private ActionListener createListener() {
+        return e-> workingpanel.create();
+
+    }
+
     private void createConnectionButtons() {
         ButtonGroup buttonGroup = new ButtonGroup();
-        JToggleButton[] buttons = {new JToggleButton("Connect"),
-                new JToggleButton("Disconnect")};
+        JToggleButton[] buttons = {new JToggleButton("Connect"),new JToggleButton("Disconnect")};
 
-        ActionListener[] listeners = {connectListener(),
-                disconnectListener()};
+        ActionListener[] listeners = {connectListener(),disconnectListener()};
 
         for (int i = 0; i < buttons.length; i++) {
             JToggleButton button = buttons[i];
@@ -85,5 +109,13 @@ public class ToolPanel extends JPanel {
             buttonGroup.add(button);
             add(button);
         }
+    }
+
+    private ActionListener disconnectListener() {
+        return event-> System.out.println("Disconnected");
+    }
+
+    private ActionListener connectListener() {
+        return event-> System.out.println("connected");
     }
 }
