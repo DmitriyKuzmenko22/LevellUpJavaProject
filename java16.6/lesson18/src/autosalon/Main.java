@@ -15,6 +15,12 @@ public class Main {
                 new Mercedes(18,180,Configuration.BASIX)
         };
 
+        for (Car car :cars) {
+            car.stop();
+            car.beep();
+            car.drive();
+        }
+
         /////
         AutoSalon autoSalon = new AutoSalon(cars);
 
