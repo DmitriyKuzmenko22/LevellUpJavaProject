@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
  * Created by Алексей on 11.01.2017.
  */
 public class ToolPanel extends JPanel {
+//
 
     private final TabbedPane workingPanel;
     private JComboBox<String> connectionType = new JComboBox<>();

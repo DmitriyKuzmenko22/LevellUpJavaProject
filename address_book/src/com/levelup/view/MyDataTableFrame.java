@@ -9,6 +9,7 @@ import java.awt.*;
  * Created by Алексей on 12.01.2017.
  */
 public class MyDataTableFrame extends JFrame {
+//
 
     public MyDataTableFrame() {
         init();

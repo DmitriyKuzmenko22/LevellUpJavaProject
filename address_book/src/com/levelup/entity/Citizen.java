@@ -4,6 +4,7 @@ package com.levelup.entity;
  * Created by java on 10.01.2017.
  */
 public class Citizen extends Entity {
+//
 
     private String fistName;
     private String lastName;

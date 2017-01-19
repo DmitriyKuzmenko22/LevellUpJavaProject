@@ -4,6 +4,7 @@ package com.levelup.entity;
  * Created by java on 13.01.2017.
  */
 public abstract class Entity {
+//
 
     private Long id;
 

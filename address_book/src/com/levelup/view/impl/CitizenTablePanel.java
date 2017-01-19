@@ -17,6 +17,7 @@ public class CitizenTablePanel extends JPanel implements Action {
     private final JTable table;
     private final CreateCitizenDialog dialog = new CreateCitizenDialog();
     private final CitizenTableModelContainer tableContainer;
+//
 
     public CitizenTablePanel() {
         this.tableContainer = new CitizenTableModelContainer();
