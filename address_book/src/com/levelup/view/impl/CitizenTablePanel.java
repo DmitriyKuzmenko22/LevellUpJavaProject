@@ -1,18 +1,15 @@
-package com.levelup.view.impl;
+package view.impl;
 
 import javax.swing.*;
 
-import com.levelup.entity.Citizen;
-import com.levelup.view.Action;
-import com.levelup.view.CitizenTableModelContainer;
+import entity.Citizen;
+import view.Action;
+import view.CitizenTableModelContainer;
 
 import java.awt.*;
 import java.util.List;
 
-/**
- * Created by java on 10.01.2017.
- */
-public class CitizenTablePanel extends JPanel implements Action {
+public class CitizenTablePanel extends JPanel implements Action{
 
     private final JTable table;
     private final CreateCitizenDialog dialog = new CreateCitizenDialog();
@@ -27,23 +24,26 @@ public class CitizenTablePanel extends JPanel implements Action {
 
     private void init() {
         JScrollPane scrollPane = new JScrollPane(table);
-        scrollPane.setSize(new Dimension(595, 300));
+        scrollPane.setSize(new Dimension(595,300));
         add(scrollPane);
-        setSize(new Dimension(595, 300));
+        setSize(new Dimension(595,300));
+
     }
 
     @Override
     public void create() {
         dialog.setVisible(true);
-        if(dialog.isOkPressed()) {
+
+        if(dialog.isOkPresed()) {
             tableContainer.getData().add(dialog.getEntity());
-            table.updateUI();
+
         }
+
     }
 
     @Override
     public List<Citizen> read() {
-        return tableContainer.getData();
+        return null;
     }
 
     @Override
@@ -53,8 +53,7 @@ public class CitizenTablePanel extends JPanel implements Action {
 
     @Override
     public void delete() {
-        Citizen citizen = tableContainer.getSelectedRowData(table.getSelectedRow());
+        Citizen citizen=tableContainer.getSelectedRowData(table.getSelectedRow());
         tableContainer.getData().remove(citizen);
-        table.updateUI();
     }
 }
