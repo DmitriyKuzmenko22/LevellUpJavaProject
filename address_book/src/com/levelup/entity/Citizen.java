@@ -1,44 +1,36 @@
-package entity;
+package com.levelup.entity;
 
 /**
  * Created by java on 10.01.2017.
  */
-public class Citizen {
-    private Long id;
-    private String firstName;
+public class Citizen extends Entity {
+
+    private String fistName;
     private String lastName;
     private int age;
     private Long streetId;
 
-    public Citizen(String firstName, String lastName, int age, Long streetId) {
-        this.firstName = firstName;
+    public Citizen(String fistName, String lastName, int age, Long streetId) {
+        this.fistName = fistName;
         this.lastName = lastName;
         this.age = age;
         this.streetId = streetId;
     }
 
-    public Citizen(Long id, String firstName, String lastName, int age, Long streetId) {
-        this.id = id;
-        this.firstName = firstName;
+    public Citizen(Long id, String fistName, String lastName, int age, Long streetId) {
+        super(id);
+        this.fistName = fistName;
         this.lastName = lastName;
         this.age = age;
         this.streetId = streetId;
     }
 
-    public Long getId() {
-        return id;
+    public String getFistName() {
+        return fistName;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setFistName(String fistName) {
+        this.fistName = fistName;
     }
 
     public String getLastName() {
@@ -68,8 +60,8 @@ public class Citizen {
     @Override
     public String toString() {
         return "Citizen{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
+                "id=" + getId() +
+                ", fistName='" + fistName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", age=" + age +
                 ", streetId=" + streetId +

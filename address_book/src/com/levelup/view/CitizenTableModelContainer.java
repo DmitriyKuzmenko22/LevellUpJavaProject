@@ -1,6 +1,6 @@
-package view;
+package com.levelup.view;
 
-import entity.Citizen;
+import com.levelup.entity.Citizen;
 
 import javax.swing.table.AbstractTableModel;
 import java.util.ArrayList;
@@ -11,8 +11,8 @@ import java.util.List;
  */
 public class CitizenTableModelContainer extends AbstractTableModel {
 
-    private String[] colums = {"ID",
-            "Fist name",
+    private String[] columns = {"ID",
+            "First name",
             "Last name",
             "Age",
             "Street id"};
@@ -35,28 +35,27 @@ public class CitizenTableModelContainer extends AbstractTableModel {
 
     @Override
     public int getColumnCount() {
-        return colums.length;
+        return columns.length;
     }
 
     @Override
     public String getColumnName(int column) {
-        return colums[column];
+        return columns[column];
     }
 
     @Override
     public boolean isCellEditable(int rowIndex, int columnIndex) {
-        return columnIndex!=0;
+        return columnIndex != 0;
     }
-
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Citizen citizen=data.get(rowIndex);
-        switch (columnIndex){
-            case 1: return citizen.getFirstName();
-            case 2: return citizen.getLastName();
-            case 3: return citizen.getAge();
-            case 4: return citizen.getStreetId();
+        Citizen citizen = data.get(rowIndex);
+        switch (columnIndex) {
+            case 1 : return citizen.getFistName();
+            case 2 : return citizen.getLastName();
+            case 3 : return citizen.getAge();
+            case 4 : return citizen.getStreetId();
             default:
                 return citizen.getId();
         }
@@ -64,23 +63,20 @@ public class CitizenTableModelContainer extends AbstractTableModel {
 
     @Override
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
-        Citizen citizen=data.get(rowIndex);
-        switch (columnIndex){
-            case 1: citizen.setFirstName((String) aValue);
+        Citizen citizen = data.get(rowIndex);
+        switch (columnIndex) {
+            case 1 : citizen.setFistName((String) aValue);
                 break;
-            case 2: citizen.setLastName((String) aValue);
+            case 2 : citizen.setLastName((String) aValue);
                 break;
-            case 3: citizen.setAge(Integer.parseInt((String) aValue));
+            case 3 : citizen.setAge(Integer.parseInt((String) aValue));
                 break;
-            case 4: citizen.setStreetId(Long.parseLong((String) aValue));
+            case 4 : citizen.setStreetId(Long.parseLong((String) aValue));
                 break;
         }
     }
-    public Citizen getSelectedData(int rowIndex){
-        return data.get(rowIndex);
-    }
 
-    public Citizen getSelectedRowData(int rowIndex){
+    public Citizen getSelectedRowData(int rowIndex) {
         return data.get(rowIndex);
     }
 }

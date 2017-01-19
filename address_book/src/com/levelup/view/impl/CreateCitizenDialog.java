@@ -1,11 +1,11 @@
-package view.impl;
+package com.levelup.view.impl;
+
+import com.levelup.entity.Citizen;
+import com.levelup.view.*;
 
 import javax.swing.*;
 import java.awt.*;
-
-import entity.Citizen;
-import view.Dialog;
-
+import com.levelup.view.Dialog;
 
 /**
  * Created by java on 10.01.2017.
@@ -23,7 +23,7 @@ public class CreateCitizenDialog extends Dialog {
 
     @Override
     public Citizen getEntity() {
-        Citizen citizen= createCitizen();
+        Citizen citizen = createCitizen();
         clearFields();
         return citizen;
     }
@@ -33,31 +33,27 @@ public class CreateCitizenDialog extends Dialog {
         lastName.setText("");
         age.setText("");
         streetId.setText("");
-
     }
 
     private Citizen createCitizen() {
-        String fName=firstName.getText();
-        String lName=lastName.getText();
+        String fName = firstName.getText();
+        String lName = lastName.getText();
         int age = Integer.parseInt(this.age.getText());
-        String sId=this.streetId.getText();
-        Long streetId = sId.isEmpty()? null : Long.parseLong(sId);
-
-        return new Citizen(fName,lName,age,streetId);
+        String sId = this.streetId.getText();
+        Long streetId = sId.isEmpty() ? null : Long.parseLong(sId);
+        return new Citizen(fName, lName, age, streetId);
     }
 
-    private void initComponents(){
+    private void initComponents() {
         initLabels();
-        initTextField();
+        initTextFields();
     }
-
-
 
     private void initLabels() {
-        JLabel firstName = new JLabel("First Name");
-        JLabel lastName = new JLabel("Last Name");
-        JLabel age = new JLabel("Fge");
-        JLabel streetId = new JLabel("streetID");
+        JLabel firstName = new JLabel("First Name:");
+        JLabel lastName = new JLabel("Last Name:");
+        JLabel age = new JLabel("Age:");
+        JLabel streetId = new JLabel("Street id:");
 
         firstName.setBounds(30, 0, 65, 25);
         lastName.setBounds(30, 35, 65, 25);
@@ -68,13 +64,13 @@ public class CreateCitizenDialog extends Dialog {
         panel.add(lastName);
         panel.add(age);
         panel.add(streetId);
-
     }
-    private void initTextField() {
-         firstName = new TextField();
-         lastName = new TextField();
-         age = new TextField();
-         streetId = new TextField();
+
+    private void initTextFields() {
+        firstName = new TextField();
+        lastName = new TextField();
+        age = new TextField();
+        streetId = new TextField();
 
         firstName.setBounds(110, 0, 100, 25);
         lastName.setBounds(110, 35, 100, 25);
@@ -85,6 +81,5 @@ public class CreateCitizenDialog extends Dialog {
         panel.add(lastName);
         panel.add(age);
         panel.add(streetId);
-//
     }
 }

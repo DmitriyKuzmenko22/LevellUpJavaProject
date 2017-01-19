@@ -20,6 +20,6 @@ public class Main {
 
         System.out.println("Total price " + autoSalon.calculateCarsPrice());
         System.out.println(Arrays.toString(autoSalon.sortByFuelConsumption()));
-        System.out.println(Arrays.toString(autoSalon.getCarsBySpeedRange(160,190)));
+        System.out.println(Arrays.toString(autoSalon.getCarsBySpeedRange(160,250)));
     }
 }
