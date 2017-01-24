@@ -17,7 +17,7 @@ class SingleLinkedListTest extends Specification {
         list.size() == 1
         list.getFirst().isPresent() //усть ли результат?? вернули налл - значит фолс
         list.getFirst().get().value == 1
-
+//
     }
 
     def "add null node to empty list"() {
