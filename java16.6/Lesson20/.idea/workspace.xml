@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dbe17992-a5e8-47b5-87a9-92e4276925f3" name="Default" comment="">
+    <list default="true" id="dbe17992-a5e8-47b5-87a9-92e4276925f3" name="Default" comment="actualww1t">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ua/dp/levelup/list/AbstractList.java" afterPath="$PROJECT_DIR$/src/ua/dp/levelup/list/AbstractList.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ua/dp/levelup/list/Node.java" afterPath="$PROJECT_DIR$/src/ua/dp/levelup/list/Node.java" />
@@ -42,11 +42,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Node.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Node.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ua/dp/levelup/list/Node.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.063432835">
-              <caret line="6" column="9" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="6" column="11" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -56,17 +56,17 @@
         <entry file="file://$PROJECT_DIR$/src/ua/dp/levelup/list/SingleLinkedList.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="27" column="9" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
+              <caret line="27" column="11" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SingleLinkedListTest.groovy" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SingleLinkedListTest.groovy" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ua/dp/levelup/list/SingleLinkedListTest.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="19" column="9" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.19029851">
+              <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -76,7 +76,7 @@
         <entry file="file://$PROJECT_DIR$/src/ua/dp/levelup/list/AbstractList.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="10" column="2" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="2" />
+              <caret line="17" column="10" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -104,10 +104,10 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/ua/dp/levelup/list/Node.java" />
+        <option value="$PROJECT_DIR$/src/ua/dp/levelup/list/SingleLinkedList.java" />
         <option value="$PROJECT_DIR$/src/ua/dp/levelup/list/AbstractList.java" />
         <option value="$PROJECT_DIR$/src/ua/dp/levelup/list/SingleLinkedListTest.groovy" />
-        <option value="$PROJECT_DIR$/src/ua/dp/levelup/list/SingleLinkedList.java" />
-        <option value="$PROJECT_DIR$/src/ua/dp/levelup/list/Node.java" />
       </list>
     </option>
   </component>
@@ -705,7 +705,7 @@
       <option name="number" value="Default" />
       <updated>1485275475021</updated>
       <workItem from="1485275476365" duration="8274000" />
-      <workItem from="1485284008533" duration="25000" />
+      <workItem from="1485284008533" duration="201000" />
     </task>
     <task id="LOCAL-00001" summary="actual">
       <created>1485283173101</created>
@@ -743,7 +743,13 @@
       <option name="project" value="LOCAL" />
       <updated>1485284015986</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="actualww1t">
+      <created>1485284043934</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1485284043934</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -767,7 +773,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8299000" />
+    <option name="totallyTimeSpent" value="8475000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="642" y="105" width="709" height="574" extended-state="0" />
@@ -837,7 +843,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="actual" />
     <MESSAGE value="actualww1" />
-    <option name="LAST_COMMIT_MESSAGE" value="actualww1" />
+    <MESSAGE value="actualww1t" />
+    <option name="LAST_COMMIT_MESSAGE" value="actualww1t" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -911,18 +918,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ua/dp/levelup/list/AbstractList.java">
+    <entry file="file://$PROJECT_DIR$/src/ua/dp/levelup/list/Node.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="2" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="2" />
+          <caret line="6" column="11" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ua/dp/levelup/list/SingleLinkedListTest.groovy">
+    <entry file="file://$PROJECT_DIR$/src/ua/dp/levelup/list/AbstractList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="9" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
+          <caret line="17" column="10" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
           <folding />
         </state>
       </provider>
@@ -930,15 +937,15 @@
     <entry file="file://$PROJECT_DIR$/src/ua/dp/levelup/list/SingleLinkedList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="27" column="9" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
+          <caret line="27" column="11" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ua/dp/levelup/list/Node.java">
+    <entry file="file://$PROJECT_DIR$/src/ua/dp/levelup/list/SingleLinkedListTest.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.063432835">
-          <caret line="6" column="9" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.19029851">
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding />
         </state>
       </provider>
