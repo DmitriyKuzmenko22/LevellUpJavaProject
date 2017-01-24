@@ -8,7 +8,7 @@ import java.util.Optional;
 public abstract class AbstractList {
 
     protected int size=0;
-
+//
     public int size(){
         return size;
     }
