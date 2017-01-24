@@ -21,5 +21,5 @@ public abstract class AbstractList {
     public abstract Optional<Node> get(int index);
     public abstract boolean isEmpty();
     public abstract boolean isNotEmpty();
-
+//
 }

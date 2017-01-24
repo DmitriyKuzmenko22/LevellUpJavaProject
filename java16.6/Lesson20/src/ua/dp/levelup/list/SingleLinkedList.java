@@ -25,7 +25,7 @@ public class SingleLinkedList extends AbstractList {
         size++;
 
     }
-//////
+///////
     @Override
     public void addLast(Node node) {
         if (null==node) return;
