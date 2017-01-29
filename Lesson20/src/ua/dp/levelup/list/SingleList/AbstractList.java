@@ -1,4 +1,6 @@
-package ua.dp.levelup.list;
+package ua.dp.levelup.list.SingleList;
+
+import ua.dp.levelup.list.SingleList.Node;
 
 import java.util.Optional;
 
@@ -21,6 +23,8 @@ public abstract class AbstractList {
 
     public abstract void removeLast();
 
+    public abstract void swap(int nodeA, int nodeB);
+
     public abstract Optional<Node> getFirst();
 
     public abstract Optional<Node> getLast();
@@ -30,4 +34,8 @@ public abstract class AbstractList {
     public abstract boolean isEmpty();
 
     public abstract boolean isNotEmpty();
+
+    public abstract void addNode(Node node,int index);
+
+    public abstract void remove(int index);
 }

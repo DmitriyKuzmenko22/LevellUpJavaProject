@@ -31,7 +31,7 @@ public class BinaryTree<T> implements Tree<T> {
         }
 
         public void setLeft(Node<V> left) {
-            left.setParent(this);//mi nahodimsya seyshav v nem v etou mode
+            left.setParent(this);//mi nahodimsya seyshav v nem v etou node
             this.left = left;
         }
 
