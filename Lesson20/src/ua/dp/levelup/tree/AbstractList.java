@@ -9,7 +9,7 @@ import java.util.Optional;
 public abstract class AbstractList<N> {
 
     protected int size=0;
-//llll
+//llllке
     public abstract void add(N node, int index);
     public int size(){
         return size;

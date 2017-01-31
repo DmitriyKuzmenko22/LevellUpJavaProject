@@ -1,7 +1,7 @@
 package ua.dp.levelup.double_linked_list;
 
 /**
- * Created by java on 31.01.2017.
+ * Created by java on 31.01.2017.вап
  */
 public class Node<V>{
     private Node<V> next=null;

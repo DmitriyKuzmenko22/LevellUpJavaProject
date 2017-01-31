@@ -5,7 +5,7 @@ import ua.dp.levelup.tree.AbstractList;
 import java.util.Optional;
 
 /**
- * Created by java on 24.01.2017.
+ * Created by java on 24.01.2017.вап
  */
 public class SingleLinkedList extends AbstractList<Node<T>> {
 

@@ -8,7 +8,7 @@ import java.util.NoSuchElementException;
 import java.util.Optional;
 
 /**
- * Created by java on 31.01.2017.
+ * Created by java on 31.01.2017.вап
  */
 public class DoublyLinkedList<T> extends AbstractList<Node<T>> implements Iterable<Node<T>>{
 

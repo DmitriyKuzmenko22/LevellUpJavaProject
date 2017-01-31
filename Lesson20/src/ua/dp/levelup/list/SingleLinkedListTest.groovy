@@ -3,7 +3,7 @@ package ua.dp.levelup.list
 import spock.lang.Specification
 
 /**
- * Created by java on 24.01.2017.
+ * Created by java on 24.01.2017.апр
  */
 class SingleLinkedListTest extends Specification {
 

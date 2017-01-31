@@ -4,7 +4,7 @@ package ua.dp.levelup.list;
  * Created by java on 24.01.2017.
  */
 public class Node<T> {
-/////////ll
+/////////llвап
    private Node<T> next = null;
    private Object value;
 
