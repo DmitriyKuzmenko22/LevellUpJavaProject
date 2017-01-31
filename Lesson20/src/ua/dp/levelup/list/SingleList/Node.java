@@ -1,4 +1,4 @@
-package ua.dp.levelup.list;
+package ua.dp.levelup.list.SingleList;
 
 /**
  * Created by java on 24.01.2017.
@@ -24,9 +24,12 @@ public class Node<T> {
         this.value = value;
     }
 
+<<<<<<< HEAD:Lesson20/src/ua/dp/levelup/list/Node.java
     public Node(Object value) {
         this.value = value;
     }
 
+=======
+>>>>>>> origin/master:Lesson20/src/ua/dp/levelup/list/SingleList/Node.java
 
 }

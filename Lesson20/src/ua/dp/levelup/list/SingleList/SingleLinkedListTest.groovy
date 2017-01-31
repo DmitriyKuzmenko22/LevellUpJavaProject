@@ -1,7 +1,14 @@
-package ua.dp.levelup.list
+package ua.dp.levelup.list.SingleList
 
 import spock.lang.Specification
+<<<<<<< HEAD:Lesson20/src/ua/dp/levelup/list/SingleLinkedListTest.groovy
 
+=======
+import ua.dp.levelup.list.SingleList.Node
+import ua.dp.levelup.list.SingleList.SingleLinkedList
+
+///
+>>>>>>> origin/master:Lesson20/src/ua/dp/levelup/list/SingleList/SingleLinkedListTest.groovy
 /**
  * Created by java on 24.01.2017.апр
  */
@@ -18,6 +25,19 @@ class SingleLinkedListTest extends Specification {
         list.getFirst().isPresent() //усть ли результат?? вернули налл - значит фолс
         list.getFirst().get().value == 1
 /////////ll
+    }
+
+    def "add last node to empty list"() {
+        SingleLinkedList list = new SingleLinkedList();
+
+        when: 'add node element'
+        list.addFirst(new Node(1));
+        list.addLast(new Node(5));
+
+        then: 'check size'
+        list.size() == 2
+        list.getFirst().isPresent()
+        list.getFirst().get().value == 1
     }
 
     def "add null node to empty list"() {
