@@ -8,15 +8,16 @@ import java.util.Comparator;
 public class BinaryTree<T> implements Tree<T> {
 
 
-    private class Node<V>{
-      private Node<V> parent;
-      private Node<V> left;
-      private Node<V> right;
-      private final V value;
+    class Node<V> {
+        private Node<V> parent;
+        private Node<V> left;
+        private Node<V> right;
+        private V value;
 
         public Node(V value) {
             this.value = value;
         }
+
 
         public Node<V> getParent() {
             return parent;
@@ -41,16 +42,20 @@ public class BinaryTree<T> implements Tree<T> {
 
         public void setRight(Node<V> right) {
             right.setParent(this);
-            this.right=right;
+            this.right = right;
         }
 
         public V getValue() {
             return value;
         }
+
+        public void setData(Object data) {
+            this.value = value;
+        }
     }
 
     private Node<T> root; // opesivaem svoystva classa
-    private int size=0;
+    private int size = 0;
 
     private final Comparator<T> comparator;
 
@@ -60,17 +65,17 @@ public class BinaryTree<T> implements Tree<T> {
 
     @Override
     public void add(T value) {
-        if (null==root){
+        if (null == root) {
             root = new Node<>(value);
         } else {
-            add(value,root);
+            add(value, root);
 
         }
 
 
     }
 
-    private void add(T val,Node<T> parent) {
+    private void add(T val, Node<T> parent) {
         if (comparator.compare(val, root.getValue()) < 0) {
             //left
             if (parent.getLeft() == null) {
@@ -101,21 +106,91 @@ public class BinaryTree<T> implements Tree<T> {
 
     @Override
     public void print() {
-        if (null==root) return;
+        if (null == root) return;
         printChild(root);
 
     }
 
+    @Override
+    public Node<T> findValue(T value) {
+        Node<T> tmp = root;
+        for (int i = 0; i <size; i++) {
+            if (null == tmp) return tmp;
+            else if (comparator.compare(value,tmp.getValue())==-1) tmp=tmp.getLeft();//menshe perviy
+            else if (comparator.compare(value,tmp.getValue())==1) tmp=tmp.getRight();//bolshe vtoroy
+            else if (comparator.compare(value,tmp.getValue())==0) return tmp;//ravni
+
+        }
+        return tmp;
+
+    }
+
+
     private void printChild(Node<T> parent) {
-        if (parent.getLeft()!=null){
+        if (parent.getLeft() != null) {
             printChild(parent.getLeft());
         }
 
         System.out.println(parent.getValue());
 
 
-        if (parent.getRight()!=null){
+        if (parent.getRight() != null) {
             printChild(parent.getRight());
         }
     }
+    public void delete(T value) {
+        root = delete(root, value);
+    }
+
+    private Node delete(Node startNode, T value) {
+        Node<T> element = findValue(value);
+        if (element == null) return startNode;
+        boolean hasParent = element.getParent() != null;
+        boolean isLeft = hasParent && element.getValue() < element.getParent().getValue();
+        if (element.getLeft() == null && element.getRight() == null) {
+            if (hasParent) {
+                if (isLeft) {
+                    element.getParent().setLeft(null);
+                } else {
+                    element.getParent().setRight(null);
+                }
+            }
+        } else if (element.getLeft() != null && element.getRight() == null) {
+            if (hasParent) {
+                if (isLeft) {
+                    element.getParent().setLeft(element.getLeft());
+                } else {
+                    element.getParent().setRight(element.getLeft());
+                }
+            } else {
+                startNode = element.getLeft();
+            }
+        } else if (element.getLeft() == null && element.getRight() != null) {
+            if (hasParent) {
+                if (isLeft) {
+                    element.getParent().setLeft(element.getRight());
+                } else {
+                    element.getParent().setRight(element.getRight());
+                }
+            } else {
+                startNode = element.getRight();
+            }
+        } else {
+            Node rightMin = findMin(element.getRight());
+            element.setData(rightMin.getValue());
+            return delete(rightMin, (T) rightMin.getValue());
+        }
+        element = null;
+        return startNode;
+    }
+
+    public Node findMin(Node<T> right) {
+        Node min = root;
+        if (min == null) return null;
+        while (min.getLeft() != null) {
+            min = min.getLeft();
+        }
+        return min;
+    }
+
 }

@@ -1,11 +1,7 @@
 package ua.dp.levelup.list;
 
-import ua.dp.levelup.list.DoubleList.DoubleLinkedList;
-import ua.dp.levelup.list.DoubleList.NodeDouble;
-import ua.dp.levelup.list.SingleList.Node;
-import ua.dp.levelup.list.SingleList.SingleLinkedList;
-
-import java.util.Objects;
+import ua.dp.levelup.list.SingleListOld.Node;
+import ua.dp.levelup.list.SingleListOld.SingleLinkedList;
 
 /**
  * Created by Дмитрий on 29.01.2017.

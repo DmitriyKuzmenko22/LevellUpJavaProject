@@ -1,6 +1,4 @@
-package ua.dp.levelup.list.DoubleList;
-
-import ua.dp.levelup.list.SingleList.Node;
+package ua.dp.levelup.list.DoubleListOld;
 
 import java.util.Optional;
 

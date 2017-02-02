@@ -1,12 +1,9 @@
-package ua.dp.levelup.list.SingleList
+package ua.dp.levelup.list.SingleListOld
 
 import spock.lang.Specification
 <<<<<<< HEAD:Lesson20/src/ua/dp/levelup/list/SingleLinkedListTest.groovy
 
 =======
-import ua.dp.levelup.list.SingleList.Node
-import ua.dp.levelup.list.SingleList.SingleLinkedList
-
 ///
 >>>>>>> origin/master:Lesson20/src/ua/dp/levelup/list/SingleList/SingleLinkedListTest.groovy
 /**
