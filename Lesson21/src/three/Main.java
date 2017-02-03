@@ -26,6 +26,12 @@ public class Main {
 
         tree.add(14); //left
 
+
+        tree.print();
+
+        System.out.println("df "+tree.findValue(29));
+
+        //tree.findValue(58);
     }
 
     }

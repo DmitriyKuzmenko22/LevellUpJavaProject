@@ -8,5 +8,6 @@ public interface Tree<T> {
     void addAll(T[] value);
     void remove(T value);
     void print();
+    BinaryTree<T>.Node<T> findValue(T value);
 
 }

@@ -1,6 +1,4 @@
-package ua.dp.levelup.list.SingleList;
-
-import ua.dp.levelup.list.SingleList.Node;
+package ua.dp.levelup.list.SingleListOld;
 
 import java.util.Optional;
 
