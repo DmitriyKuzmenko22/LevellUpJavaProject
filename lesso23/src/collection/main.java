@@ -35,7 +35,7 @@ public class main {
 
         Integer[] array = (Integer[]) list1.toArray(new Integer[list1.size()]);
         System.out.println(Arrays.toString(array));
-
+//
 
     }
 }
