@@ -3,7 +3,7 @@ package collection;
 /**
  * Created by java on 07.02.2017.
  */
-public class Student {
+public class Student implements Comparable<Student> {
 
     private int id;
     private String name;
@@ -66,4 +66,8 @@ public class Student {
     }
 
 
+    @Override
+    public int compareTo(Student o) {
+        return Integer.compare(this.id,o.getId());
+    }
 }
