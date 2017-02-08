@@ -38,16 +38,19 @@ public class main {
 //        System.out.println(Arrays.toString(array));
 //
 
+//
+//        LinkedList<Integer> list=new LinkedList<>();
+//        list.add(3);
+//        list.add(2);
+//        list.add(1);
+//        list.add(6);
+//        list.add(5);
+//        list.add(4);
+//
+//        System.out.println(list.get(3));
+//        System.out.println(list.get(5));
 
-        LinkedList<Integer> list=new LinkedList<>();
-        list.add(3);
-        list.add(2);
-        list.add(1);
-        list.add(6);
-        list.add(5);
-        list.add(4);
 
-        System.out.println(list.get(3));
-        System.out.println(list.get(5));
+
     }
 }
