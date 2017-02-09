@@ -24,12 +24,6 @@ public class Node<T> {
         this.value = value;
     }
 
-<<<<<<< HEAD:Lesson20/src/ua/dp/levelup/list/Node.java
-    public Node(Object value) {
-        this.value = value;
-    }
 
-=======
->>>>>>> origin/master:Lesson20/src/ua/dp/levelup/list/SingleList/Node.java
 
 }

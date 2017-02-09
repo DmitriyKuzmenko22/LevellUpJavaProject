@@ -8,7 +8,7 @@ public class Node<V>{
     private Node<V> prev=null;
     private final V value;
 
-    private Node(V value) {
+    public Node(V value) {
         this.value = value;
     }
 
@@ -18,7 +18,8 @@ public class Node<V>{
 
     public void setNext(Node<V> next) {
         this.next = next;
-        if (next!=null) next.setPrev(this);//
+//        if (next!=null) {next.setPrev(this);//
+//    }
     }
 
     public Node<V> getPrev() {
@@ -27,7 +28,9 @@ public class Node<V>{
 
     public void setPrev(Node<V> prev) {
         this.prev = prev;
-        if (prev!=null) prev.setNext(this);//мі у предідущего ставим себя(следующим я буду у тебя)
+//        if (prev != null) {
+//            prev.setNext(this);//мі у предідущего ставим себя(следующим я буду у тебя)
+//        }
     }
 
     public V getValue() {

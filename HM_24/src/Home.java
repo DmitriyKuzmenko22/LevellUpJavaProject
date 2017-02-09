@@ -11,10 +11,10 @@ public class Home implements Comparable<Home> {
     @Override
     public String toString() {
         return "Home{" +
-                "numberHouse=" + numberHouse +
-                ", city='" + city + '\'' +
-                ", valueFloors=" + valueFloors +
-                ", tenants=" + tenants +
+                "Номер дома =" + numberHouse +
+                ", Город ='" + city + '\'' +
+                ", Количество этажей =" + valueFloors +
+                ", Количество жителей =" + tenants +
                 '}';
     }
 
@@ -98,39 +98,63 @@ public class Home implements Comparable<Home> {
         return result;
     }
 
+
+//сортировка по нескольким параметрам
 //    @Override
 //    public int compareTo(Home o) {
-//        return numberHouse.compare(this.numberHouse,o.getNumberHouse());
-//        return valueFloors.compare(this.valueFloors, o.getValueFloors());
+//        int result;
+//        result = Integer.compare(this.numberHouse, o.getNumberHouse());
+//        if(result != 0) return result;
+//        result = Integer.compare(this.valueFloors, o.getValueFloors());
+//        if(result != 0) return result;
+//        result = city.compareTo(o.city);
+//        if(result != 0) return result;
+//        result = Integer.compare(this.tenants, o.getTenants());
+//        return result;
 //    }
+
+    //сортируем по году и по номеру дома
+//    @Override
+//    public int compareTo(Home o){
+//        if (this.city.equals(o.getCity())){
+//            if (this.numberHouse==o.getNumberHouse()){
+//                return 0;
+//            }
+//            return Integer.compare(this.numberHouse,o.getNumberHouse());
+//        }
+//        return this.city.compareTo(o.getCity());
+//    }
+
+
+    //по убываю сортировка номер дома и разные улицы
+//    @Override
+//    public int compareTo(Home o){
+//        if (this.numberHouse==o.getNumberHouse()){
+//            if (this.city.equals(o.getCity())){
+//                return 0;
+//            }
+//                return o.getCity().compareTo(this.city);
+//        }
+//        return Integer.compare(o.getNumberHouse(), this.numberHouse);
+//    }
+//сортировка по убыванию 1.количество жителей. 2.город. 3.номер дома.
     @Override
-    public int compareTo(Home o) {
-        int result;
-        result = Integer.compare(this.numberHouse, o.getNumberHouse());
-        if(result != 0) return result;
-        result = Integer.compare(this.valueFloors, o.getValueFloors());
-        if(result != 0) return result;
-        result = city.compareTo(o.city);
-        if(result != 0) return result;
-        result = Integer.compare(this.tenants, o.getTenants());
-        return result;
+    public int compareTo(Home o){
+        if (this.tenants==o.getTenants()){
+            if (this.city.equals(o.getCity())){
+                if (this.numberHouse==o.getNumberHouse()){
+                    return 0;
+                }
+                return Integer.compare(o.getNumberHouse(),this.numberHouse);
+            }
+            return o.getCity().compareTo(this.city);
+        }
+        return Integer.compare(o.getTenants(),this.tenants);
     }
 
 
 
 
 
-//    @Override
-//    public int hashCode() {
-////        int result = numberHouse != null ? numberHouse.hashCode() : 0;
-////        result = 31 * result + (city != null ? city.hashCode() : 0);
-////        result = 31 * result + (valueFloors != null ? valueFloors.hashCode() : 0);
-////        result = 31 * result + (tenants != null ? tenants.hashCode() : 0);
-////        return result;
-//        return city;
-//    }
-//    @Override
-//    public int compareTo(Home o) {
-//        return Integer.compare(this.city, o.getCity());
-//    }
+
 }

@@ -119,12 +119,19 @@ public class DoublyLinkedList<T> extends AbstractList<Node<T>> implements Iterab
             throw new IllegalArgumentException(String.format("passed not correct index: %d", index));
         //ili index bolwe size
 
-        Node<T> res =head;
-        for (int i=0; i<=index; i++){
-            res =res.getNext();
+//        Node<T> res =head;
+//        for (int i=0; i<=index; i++){
+//            res =res.getNext();
+//        }
+        Node<T> res = null;
+        Iterator<Node<T>> iterator = iterator();
+        int currentIndex = 0;
+        while (iterator.hasNext() && currentIndex <= index){
+            res = iterator.next();
+            currentIndex++;
         }
 
-        return Optional.of(res);// false ==null
+        return Optional.ofNullable(res);// false ==null
     }
 
 
