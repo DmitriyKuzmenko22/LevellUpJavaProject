@@ -14,15 +14,16 @@ import java.util.Scanner;
  */
 public class CommandLineApp {
 
-    private static final String DEFAULT_PATH="D:\\";
+    private static final String DEFAULT_PATH="C:\\";
     private static File currentDir = new File(DEFAULT_PATH);//для того что бі біла возможность переходить из директорий, менять местами разніе диски
 
     public static void main(String[] args) {
-        File currentDir=new File(DEFAULT_PATH);
-        //dlya peremeshenia po papkam
+
 
         Scanner scanner=new Scanner(System.in);
+
         while (true){
+            System.out.println(currentDir.getPath());
             String line=scanner.nextLine();//chitaem sled stroky
 
             if (line.startsWith("print")){ //pechataet directiroii
@@ -33,19 +34,43 @@ public class CommandLineApp {
                createNewFolder(line,currentDir);
             } else if (line.startsWith("cd")){ //vvod v console
                 changeDirectory(line);
+            } else {
+                System.out.println("not correct");
             }
-
         }
 
     /*    //provaryaem eto direcoria
         if (currentDir.isDirectory()){
             printAllDerectioris(currentDir); //esli directiria pereday ee nam
         }
+
+
 */
+    }
+    private static void changeDirectory(String line) {
+        String folderName = line.split("\\s+")[1];
+
+        if (folderName.contains("..")) {
+            if (currentDir.getParentFile() != null) currentDir = currentDir.getParentFile();
+            return;
+        }
+
+        File[] list = currentDir.listFiles(dir -> dir.isDirectory() && dir.getName().contains(folderName));
+
+        if (list.length == 1) {
+            File matchedFolder = list[0];
+            currentDir = matchedFolder;//
+        } else if (list.length == 0) {
+            System.out.println("No such file or directory");
+        } else {
+            for (File dir : list) {
+                System.out.println(dir.getName());
+            }
+        }
     }
 //cd+// - vozvrat nazad
     //cd+new Folder sozdaet novuy papku
-    private static void changeDirectory(String line) { //ищем директорию по не полному названию , к примеру совпаднию по 1й букве
+  /*  private static void changeDirectory(String line) { //ищем директорию по не полному названию , к примеру совпаднию по 1й букве
         String folderName = line.split("\\s+")[1];
 
         if (folderName.contains("..")){ // возвращаемся назад в директорию предідущую
@@ -70,7 +95,7 @@ public class CommandLineApp {
                 System.out.println(dir.getName());
             }
         }
-    }
+    }*/
 
     private static void createNewFolder(String line,File parent){
         String folderName = line.split("\\s+")[1];
