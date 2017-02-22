@@ -1,3 +1,4 @@
+/*
 package collection;
 
 import org.junit.Test;
@@ -8,9 +9,11 @@ import java.util.regex.Matcher;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.assertTrue;
 
+*/
 /**
  * Created by java on 07.02.2017.
- */
+ *//*
+
 public class UtilTest {
 
     @Test
@@ -89,3 +92,4 @@ public class UtilTest {
 
 
 
+*/
