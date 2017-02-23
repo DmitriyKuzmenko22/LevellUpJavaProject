@@ -3,21 +3,20 @@ package explorer;
 import com.sun.org.apache.xalan.internal.xsltc.dom.Filter;
 import com.sun.org.apache.xpath.internal.SourceTree;
 
-import java.io.File;
-import java.io.FileFilter;
-import java.io.FilenameFilter;
-import java.io.IOException;
+import java.io.*;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by java on 21.02.2017.
  */
 public class CommandLineApp {
 
-    private static final String DEFAULT_PATH="C:\\";
-    private static File currentDir = new File(DEFAULT_PATH);//для того что бі біла возможность переходить из директорий, менять местами разніе диски
+   // private static final String DEFAULT_PATH="C:\\";
+    private static File currentDir = new File("C:\\");//для того что бі біла возможность переходить из директорий, менять местами разніе диски
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
 
         Scanner scanner=new Scanner(System.in);
@@ -25,28 +24,102 @@ public class CommandLineApp {
         while (true){
             System.out.println(currentDir.getPath());
             String line=scanner.nextLine();//chitaem sled stroky
-
-            if (line.startsWith("print")){ //pechataet directiroii
+            if (line.startsWith("printDirect")){ //pechataet directiroii
                 if (currentDir.isDirectory()){
                     printAllDerectioris(currentDir);
                 }
             } else if (line.startsWith("mkDir")){ //mkDir newFolderName
                createNewFolder(line,currentDir);
-            } else if (line.startsWith("cd")){ //vvod v console
+            } else if (line.startsWith("cd")) { //vvod v console
                 changeDirectory(line);
-            } else {
+            } else if (line.startsWith("newfile")){
+                createNewFile(line,currentDir);
+            } else if (line.startsWith("del")){
+                delete(line,currentDir);
+            }
+            else if (line.startsWith("printFiles")){
+                printAllFiles(currentDir);
+            }
+            else if (line.startsWith("open")){
+                openTextFiles(line,currentDir);
+            }
+            else if (line.startsWith("exit")){
+
+                break;
+            }
+            else {
                 System.out.println("not correct");
             }
         }
-
-    /*    //provaryaem eto direcoria
-        if (currentDir.isDirectory()){
-            printAllDerectioris(currentDir); //esli directiria pereday ee nam
-        }
-
-
-*/
     }
+
+
+    public static void openTextFiles(String line,File parent) throws IOException {
+        String folderName = line.split("\\s+")[1];
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        File f = new File(parent, folderName);
+        BufferedReader fin = new BufferedReader(new FileReader(f));
+        String name;
+       // String line;
+        System.out.println("Print File "+f.getName()+"? y/n");
+        name = br.readLine();
+        if(name.equals("y")) {
+            if(isTxtOrCsv(f.getName())){
+            while ((line = fin.readLine()) != null) {
+                System.out.println(line);
+            }
+            }else {
+                System.out.println("not correct");
+            }
+        }
+    }
+
+    public static boolean isTxtOrCsv(String correct) {
+        Pattern p = Pattern.compile(".+\\.(txt|csv)");
+        Matcher m = p.matcher(correct);
+        return m.matches();
+    }
+
+    public static void printAllFiles(File file)
+    {
+        File[] files = file.listFiles();
+        if (files != null)
+        {
+            for (File f : files)
+            {
+                if (f.isFile() && !f.isHidden())
+                {
+                    System.out.println(f.getName());
+                }
+            }
+        }
+    }
+
+    public static void delete(String line,File parent) throws FileNotFoundException {
+       // String folderName = line.split("\\s+")[1];
+        String folderName = line.split("\\s+")[1];
+        File file=new File(parent, folderName);
+        if(file.delete()){
+            System.out.println("файл удален");
+        }else System.out.println("Файл "+ folderName+" не обнаружено");
+    }
+
+    private static void createNewFile(String line,File parent){
+        String folderName = line.split("\\s+")[1];
+        File newFile = new File(parent, folderName);
+        try
+        {
+            boolean created = newFile.createNewFile();
+            if(created)
+                System.out.println("Файл создан");
+        }
+        catch(IOException ex){
+
+            System.out.println(ex.getMessage());
+        }
+    }
+
+
     private static void changeDirectory(String line) {
         String folderName = line.split("\\s+")[1];
 
