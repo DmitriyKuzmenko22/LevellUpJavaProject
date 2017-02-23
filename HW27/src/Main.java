@@ -29,21 +29,22 @@ public class Main {
             else if (line.startsWith("comm")) {
                 System.out.println("add [deparmnet] [employeeId] [firstName] [lastName] [salary]");
                 System.out.println("get [deparment] [employeeId]");
-                System.out.println("DepartmentDetails [deparment]");
+                System.out.println("getis [deparment]");
                 System.out.println("getAll");
 
             } else if (line.startsWith("add")) {
                 DMDSoft_Solutions.add(line.split(" "));
 
-            } else if (line.startsWith("get")) {
-              //  if (line.split(" ").length==3){
+            } else if (line.split(" ")[0].equalsIgnoreCase("get")) {
                 DMDSoft_Solutions.get(line.split(" "));
                     }
 
-             else if (line.startsWith("DepartmentDetails")){
-               // if (line.split("").length==2) {
+             else if (line.split(" ")[0].equalsIgnoreCase("getis")){
                     DMDSoft_Solutions.getis(line.split(" "));
                 }
+            else if (line.split(" ")[0].equalsIgnoreCase("getAll")){
+                DMDSoft_Solutions.getAll();
+            }
                 }
             }
 

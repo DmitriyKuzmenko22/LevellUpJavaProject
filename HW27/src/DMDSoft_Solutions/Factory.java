@@ -19,6 +19,7 @@ public class Factory {
 
     }
     public void getAll(){
+
         System.out.println(departaments.keySet().toString());
     }
 
