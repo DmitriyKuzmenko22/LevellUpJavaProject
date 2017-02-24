@@ -2,7 +2,7 @@
  * Created by java on 24.02.2017.
  */
 public class Citizen {
-//jjj
+//jjjfvfvf
     private long id;
 
     private String firsName;
