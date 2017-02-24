@@ -21,7 +21,7 @@ public class Main {
             String word = scanner.next();
             if (word.equalsIgnoreCase("exit")) break;
 
-            Set<String> set=map.get(word.length());
+            Set<String>set=map.get(word.length());
             if (set!=null){
                 set.add(word);//
 

@@ -19,53 +19,55 @@ public class Factory {
 
     }
     public void getAll(){
+
         System.out.println(departaments.keySet().toString());
     }
 
-    public void get(String nameDepartsmensConsole,Integer employeeConsole){
-        String ignore = nameDepartsmensConsole.toUpperCase();
-        if (!departaments.containsKey(ignore)){
-            System.out.println(ignore+" "+"the Department does not exist");
+    public void get(String...params){
+       // String ignore = nameDepartsmensConsole.toUpperCase();
+        if (!departaments.containsKey(params[1])){
+            System.out.println(params[1]+" "+"the Department does not exist");
             return;
         }
-        if (!departaments.get(ignore).getEmployeeHashMap().containsKey(employeeConsole)){
-            System.out.println(ignore+" "+"the employee does not exist!!!");
+       /* if (!departaments.get(params[1]).getEmployeeHashMap().containsKey(Integer.parseInt(params[2]))){
+            System.out.println(params[1]+" "+"the employee does not exist!!!");
             return;
-        }
-        System.out.println(departaments.get(ignore).getEmployeeHashMap().get(employeeConsole).toString());
+        }*/
+        System.out.println(departaments.get(params[1]).getEmployeeHashMap().get(Integer.parseInt(params[2])).toString());
     }
-    public void getis(String nameDepartsmensConsole){
-        String ignore = nameDepartsmensConsole.toUpperCase();
-        if (!departaments.containsKey(ignore)) {
-            System.out.println(ignore + " " + "the Department does not exist");
+    public void getis(String... params){
+       // String ignore = nameDepartsmensConsole.toUpperCase();
+        if (!departaments.containsKey(params[1])) {
+            System.out.println(params[1] + " " + "the Department does not exist");
             return;
         }
         else {
-            System.out.println(departaments.get(ignore).toString());
+            System.out.println(departaments.get(params[1]).toString());
         }
     }
 
-    public void add(String nameDepartsmensConsole,Integer employeeConsoleID, String firsName, String lastName, Integer salary ){
-        String ignore = nameDepartsmensConsole.toUpperCase();
-        if (!departaments.containsKey(ignore)){
-            System.out.println(ignore+" "+"the Department does not exist!!!!!!!!!!!");
+    public void add(String... params){
+       // String ignore = nameDepartsmensConsole.toUpperCase();
+       // String departmentName = params[1];
+        if (!departaments.containsKey( params[1])){
+            System.out.println(params[1]+" "+"the Department does not exist!!!!!!!!!!1!");
             return;
         }
-        if (departaments.get(ignore).getCurrentEmployee()>=departaments.get(ignore).getMaxEmployee()){
-            System.out.println(ignore+" "+"unfortunately, this Department is filled");
+        if (departaments.get( params[1]).getCurrentEmployee()>=departaments.get( params[1]).getMaxEmployee()){
+            System.out.println(  params[1] +" "+"unfortunately, this Department is filled");
             return;
         }
         Employee employee;
-        switch (ignore){
-            case "MANAGMENT": employee=new Manager(employeeConsoleID,firsName,lastName,salary); break;
-            case "DEVELOPER": employee=new Developer(employeeConsoleID,firsName,lastName,salary); break;
-            case "DESINGER": employee=new Designer(employeeConsoleID,firsName,lastName,salary); break;
+        switch (params[1]){
+            case "MANAGMENT": employee=new Manager(Integer.parseInt(params[2]), params[3], params[4], Integer.parseInt(params[5])); break;
+            case "DEVELOPER": employee=new Developer(Integer.parseInt(params[2]), params[3], params[4], Integer.parseInt(params[5])); break;
+            case "DESINGER": employee=new Designer(Integer.parseInt(params[2]), params[3], params[4], Integer.parseInt(params[5])); break;
             default: employee=null;
                 System.out.println("bad employee");
         }
 
-        departaments.get(ignore).add(employeeConsoleID, employee);
-            System.out.println(employee.getFirstName()+" added to "+nameDepartsmensConsole+" department");
+        departaments.get(params[1]).add(Integer.parseInt(params[2]), employee);
+            System.out.println(employee.getFirstName()+" added to "+params[1]+" department");
 
     }
 

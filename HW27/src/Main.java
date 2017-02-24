@@ -1,24 +1,59 @@
 import DMDSoft_Solutions.Factory;
 
 import java.io.*;
+import java.util.Scanner;
 
 /**
  * Created by Дмитрий on 18.02.2017.
  */
 public class Main {
     public static void main(String[] args) throws IOException {
-  
+
         Factory DMDSoft_Solutions = new Factory("DMDSoft_Solutions");
-        DMDSoft_Solutions.add("DEVELOPER",0,"Kuzmenko","Dmitriy",1900);
-        DMDSoft_Solutions.add("DEVELOPER",1,"Petrov","Ivan",900);
-        DMDSoft_Solutions.add("DESINGER",0,"Petrov","Ivan",900);
-        DMDSoft_Solutions.add("DESINGER",1,"Ivanod","Ivan",900);
-        DMDSoft_Solutions.add("DESINGER",2,"Petrov2","Ivan",900);
-        DMDSoft_Solutions.add("DESINGER",3,"Ivanod2","Ivan",900);
-        DMDSoft_Solutions.add("DESINGER",4,"Petrov3","Ivan",900);
-        DMDSoft_Solutions.getAll();
-        DMDSoft_Solutions.get("DEVELOPER",0);
-        DMDSoft_Solutions.getis("DEVELOPER");
-    }
-    }
+      /*  DMDSoft_Solutions.add("DEVELOPER", "0", "Kuzmenko", "Dmitriy", "1900");
+        DMDSoft_Solutions.add("DEVELOPER","1","Petrov","Ivan","900");
+        DMDSoft_Solutions.add("DESINGER","0","Petrov","Ivan","900");
+        DMDSoft_Solutions.add("DESINGER","1","Ivanod","Ivan","900");
+        DMDSoft_Solutions.add("DESINGER","2","Petrov2","Ivan","900");
+        DMDSoft_Solutions.add("DESINGER","3","Ivanod2","Ivan","900");
+        DMDSoft_Solutions.add("DESINGER","4","Petrov3","Ivan","900");*/
+
+
+
+
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            String line = scanner.nextLine();
+            if (line.equalsIgnoreCase("exit")) break;
+
+            else if (line.startsWith("comm")) {
+                System.out.println("add [deparmnet] [employeeId] [firstName] [lastName] [salary]");
+                System.out.println("get [deparment] [employeeId]");
+                System.out.println("getis [deparment]");
+                System.out.println("getAll");
+
+            } else if (line.startsWith("add")) {
+                DMDSoft_Solutions.add(line.split(" "));
+
+            } else if (line.split(" ")[0].equalsIgnoreCase("get")) {
+                DMDSoft_Solutions.get(line.split(" "));
+                    }
+
+             else if (line.split(" ")[0].equalsIgnoreCase("getis")){
+                    DMDSoft_Solutions.getis(line.split(" "));
+                }
+            else if (line.split(" ")[0].equalsIgnoreCase("getAll")){
+                DMDSoft_Solutions.getAll();
+            }
+                }
+            }
+
+        }
+
+
+
+
+
+
+
 
