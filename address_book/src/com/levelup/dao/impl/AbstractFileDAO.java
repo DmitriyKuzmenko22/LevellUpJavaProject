@@ -2,47 +2,31 @@ package com.levelup.dao.impl;
 
 import com.levelup.dao.DAO;
 
-import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.RandomAccessFile;
-import java.util.ArrayList;
 
-/**
- * Created by Дмитрий on 26.02.2017.
- */
-public class AbstractFileDAO implements DAO<T> {
-
+public abstract class AbstractFileDAO<T> implements DAO<T>
+{
     private Long id;
-    protected final FileDataProvider fileDataProvider;
-    private String fileName;
+    protected final FileDataProviderImpl fileDataProvider;// получать рандом єксесс файл
+    private String fileName;//
 
-    public AbstractFileDAO(FileDataProvider fileDataProvider, String fileName){
-        this.fileDataProvider=fileDataProvider;
-        this.fileName=fileName;
-        fileDataProvider.appendFile(fileName);
+    public AbstractFileDAO(FileDataProviderImpl fileDataProvider, String fileName){
+        this.fileDataProvider = fileDataProvider;
+        this.fileName = fileName;
+        fileDataProvider.appendFile(fileName);// стрингбилдерс , создать рандом аксес файл для каждого переданного файла и проинициализировать мапу
     }
 
-    public RandomAccessFile getDataFile() throws FileNotFoundException {
+    public RandomAccessFile getDataFile() throws IOException{
+
         return fileDataProvider.getDataFile(fileName);
     }
 
+//    public Long getId(){
+//        return id;
+//    }
 
-    @Override
-    public void create(T t) {
-
-    }
-
-    @Override
-    public ArrayList<T> read() {
-        return null;
-    }
-
-    @Override
-    public void update(T t) {
-
-    }
-
-    @Override
-    public void delete(T t) {
-
+    public String getFileName(){
+        return fileName;
     }
 }
