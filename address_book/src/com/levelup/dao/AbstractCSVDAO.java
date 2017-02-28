@@ -33,8 +33,9 @@ public abstract class AbstractCSVDAO<T extends Entity> extends AbstractFileDAO<T
 
         String line;
         try {
+            file.seek((HEADER_CSV+"\r\n").length());// переходим на следующую строку , нам нужно вернутся на позицию после нашего заголовка
             while ((line=file.readLine())!=null){
-                if (line.contains(HEADER_CSV)) continue;
+
                 if (line.startsWith(  entity.getId()+";")){ //если айди 4 найдем 4ю запись
                     arr[1]=file.getFilePointer();
                     arr[0]=file.getFilePointer()-line.length();
