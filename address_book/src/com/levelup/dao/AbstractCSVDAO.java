@@ -2,6 +2,7 @@ package com.levelup.dao;
 
 import com.levelup.dao.impl.AbstractFileDAO;
 import com.levelup.dao.impl.FileDataProviderImpl;
+import com.levelup.entity.Entity;
 
 import java.io.IOException;
 import java.io.RandomAccessFile;
@@ -10,7 +11,7 @@ import java.util.ArrayList;
 /**
  * Created by Дмитрий on 26.02.2017.
  */
-public abstract class AbstractCSVDAO<T> extends AbstractFileDAO<T> {
+public abstract class AbstractCSVDAO<T extends Entity> extends AbstractFileDAO<T> {
 
     private final String HEADER_CSV;
 
@@ -24,6 +25,28 @@ public abstract class AbstractCSVDAO<T> extends AbstractFileDAO<T> {
     protected abstract T parseEntity(final String str);
 
     public abstract String viewEntity(T entity);
+
+
+    //будем візівать в делит и апдейт
+    public long[] getStartAndEndOfStr(RandomAccessFile file, T entity){
+        long[]arr=new long[2];
+
+        String line;
+        try {
+            while ((line=file.readLine())!=null){
+                if (line.contains(HEADER_CSV)) continue;
+                if (line.startsWith(  entity.getId()+";")){ //если айди 4 найдем 4ю запись
+                    arr[1]=file.getFilePointer();
+                    arr[0]=file.getFilePointer()-line.length();
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        return arr;
+    }
 
     //4tenie iz faula
     @Override
@@ -59,4 +82,5 @@ public abstract class AbstractCSVDAO<T> extends AbstractFileDAO<T> {
         }
 
     }
+
 }
