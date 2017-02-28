@@ -38,6 +38,7 @@ public abstract class AbstractCSVDAO<T extends Entity> extends AbstractFileDAO<T
                 if (line.startsWith(  entity.getId()+";")){ //если айди 4 найдем 4ю запись
                     arr[1]=file.getFilePointer();
                     arr[0]=file.getFilePointer()-line.length();
+                    break;
                 }
             }
         } catch (IOException e) {
