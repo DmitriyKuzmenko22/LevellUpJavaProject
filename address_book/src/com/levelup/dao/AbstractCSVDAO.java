@@ -33,6 +33,7 @@ public abstract class AbstractCSVDAO<T> extends AbstractFileDAO<T> {
         RandomAccessFile file= null;
         try {
             file = getDataFile();
+            file.seek(0);// читаем с первой позиции курсора
             String line;
             while ((line=file.readLine())!=null){ // 4itaem stroku i ona ne null
                 if (line.contains(HEADER_CSV)) continue; //else stroka soderjit zagolovok to propeskaem strky (ud i t/d)
@@ -48,6 +49,7 @@ public abstract class AbstractCSVDAO<T> extends AbstractFileDAO<T> {
     public void create(T entity) { // к примеру изменить список улиц у всех пользователей
         try {
             RandomAccessFile file=getDataFile();
+            file.seek(file.length());//записіваем с последней строки
 
             // preobrazovat v stroky i srazy zapisivaem потом получаем байты
             file.write(viewEntity(entity).getBytes());

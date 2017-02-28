@@ -28,6 +28,10 @@ public class Main {
         streetDAO.create(new Street(6L,"Artema5"));
        // streetDAO.create(new Street(9L,"Topol5"));
 
+     /*   if (line.startwith(id)){
+            end=file.getFilePointer();
+            start=end-line.lenght();*/
+        }
     }
 //
-}
+
