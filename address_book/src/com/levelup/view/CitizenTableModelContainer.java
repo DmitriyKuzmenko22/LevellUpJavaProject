@@ -19,7 +19,6 @@ public class CitizenTableModelContainer extends AbstractTableModel {
 
     private List<Citizen> data = new ArrayList<>();
     private List<Citizen> updated = new ArrayList<>();
-//
 
     public List<Citizen> getData() {
         return data;

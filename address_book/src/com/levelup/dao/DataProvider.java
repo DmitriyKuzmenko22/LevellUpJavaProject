@@ -6,7 +6,7 @@ package com.levelup.dao;
 public interface DataProvider {
 
     enum ConnectionType {
-        MYSQL, H2, MONGODB, CSV, XML
+        MYSQL, H2, MONGODB, CSV, JSON, XML
     }
 
     void openConnection();

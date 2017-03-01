@@ -9,7 +9,6 @@ import java.util.List;
  * Created by Алексей on 11.01.2017.
  */
 public class TabbedPane extends JTabbedPane implements Action {
-//
 
     @Override
     public void create() {

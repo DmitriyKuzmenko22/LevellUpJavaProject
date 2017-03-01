@@ -1,12 +1,15 @@
 package com.levelup;
 
 import com.levelup.dao.DAO;
+import com.levelup.dao.DataProvider;
 import com.levelup.dao.impl.FileDataProviderImpl;
 import com.levelup.dao.impl.StreetCSVDAOImpl;
 import com.levelup.entity.Street;
+import com.levelup.view.MyDataTableFrame;
+import com.levelup.view.impl.CitizenTablePanel;
 
+import javax.swing.*;
 import java.util.ArrayList;
-
 
 /**
  * Created by java on 10.01.2017.
@@ -14,24 +17,23 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) {
-     //   new MyDataTableFrame();
+//        new MyDataTableFrame();
 
-        FileDataProviderImpl provider=new FileDataProviderImpl("");
+        FileDataProviderImpl provider = new FileDataProviderImpl("");
 
-        DAO<Street> streetDAO = new StreetCSVDAOImpl(provider, "street.csv");//peredali imya faula
+        DAO<Street> streetDAO = new StreetCSVDAOImpl(provider, "street.csv");
 
-        provider.openConnection();// создает рандм аксес файлі для каждого коннекта
+        provider.openConnection();
+
+        streetDAO.create(new Street(7L, "Topolia_1"));
 
         ArrayList<Street> streets = streetDAO.read();
+
         System.out.println(streets);
 
-        streetDAO.create(new Street(6L,"Artema5"));
-       // streetDAO.create(new Street(9L,"Topol5"));
-
-     /*   if (line.startwith(id)){
+        /*   if (line.startwith(id)){
             end=file.getFilePointer();
             start=end-line.lenght();*/
-        }
     }
-//
 
+}

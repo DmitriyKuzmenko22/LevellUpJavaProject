@@ -40,7 +40,6 @@ public abstract class Dialog extends JDialog {
         isOkPressed = false;
         return res;
     }
-//
 
     public void setOkPressed(boolean okPressed) {
         isOkPressed = okPressed;

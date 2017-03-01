@@ -16,7 +16,6 @@ public class CreateCitizenDialog extends Dialog {
     private TextField lastName;
     private TextField age;
     private TextField streetId;
-//
 
     public CreateCitizenDialog() {
         initComponents();
