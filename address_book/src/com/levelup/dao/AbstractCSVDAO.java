@@ -90,19 +90,19 @@ public abstract class AbstractCSVDAO<T extends Entity> extends AbstractFileDAO<T
             RandomAccessFile file = null;
             ArrayList<T> list = new ArrayList<>();
             file = getDataFile();
-            long [] startAndEnd = getStartAndEndOfStr(file, entity);
-            if (startAndEnd[0] == 0 && startAndEnd[1] == 0) {
+            long [] startAndEnd = getStartAndEndOfStr(file, entity); //находим начало и конечно необходимых символов
+            if (startAndEnd[0] == 0 && startAndEnd[1] == 0) { //esli rovno null i ne nawli id
                 System.out.println("This entity is not found in target file");
                 return;
             }
-            file.seek(startAndEnd[1]);
+            file.seek(startAndEnd[1]);//переходим в конец строки которую нужно удалить(ставим курсор)
 
             String line;
-            while ((line = file.readLine()) != null) {
+            while ((line = file.readLine()) != null) { //записываем все что после строки которую нужно удалить (запись в лист)
                 list.add(parseEntity(line));
             }
 
-            file.setLength(startAndEnd[0]-2L);
+            file.setLength(startAndEnd[0]-2L); // с записанного лист, записываем текст с файл (курсор стоит на месте ИД которо нужно удалить) перезаписываем вместо удаляемой строки
             for (T e:list) {
                 create(e);
             }
