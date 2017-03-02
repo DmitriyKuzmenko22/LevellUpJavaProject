@@ -25,7 +25,9 @@ public class Main {
 
         provider.openConnection();
 
-        streetDAO.create(new Street(7L, "Topolia_1"));
+       // streetDAO.create(new Street(10L, "Topolia_221"));
+
+        streetDAO.delete(new Street(9L,"Topolia_1"));
 
         ArrayList<Street> streets = streetDAO.read();
 
@@ -35,5 +37,7 @@ public class Main {
             end=file.getFilePointer();
             start=end-line.lenght();*/
     }
+
+
 
 }

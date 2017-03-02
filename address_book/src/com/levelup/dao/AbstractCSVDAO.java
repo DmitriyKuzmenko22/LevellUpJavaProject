@@ -19,13 +19,11 @@ public abstract class AbstractCSVDAO<T extends Entity> extends AbstractFileDAO<T
         HEADER_CSV = header_csv;
     }
     // striky preobraz neobhod
-
     protected abstract T parseEntity(final String str);
 
     public abstract String viewEntity(T entity);
 
-    //будем візівать в делит и апдейт
-
+    //будем візівать в делит и апдейт этот метод
     public long[] getStartAndEndOfStr(RandomAccessFile file, T entity) {
         long[] arr = new long[2];
 
@@ -36,8 +34,8 @@ public abstract class AbstractCSVDAO<T extends Entity> extends AbstractFileDAO<T
 
             while ((line = file.readLine()) != null) {
                 if (line.startsWith(  entity.getId()+";")){ //если айди 4 найдем 4ю запись
-                    arr[1] = file.getFilePointer();
-                    arr[0] = file.getFilePointer() - line.length();
+                    arr[1] = file.getFilePointer(); //konec stroki
+                    arr[0] = file.getFilePointer() - line.length();//ищем начало строки
                     break;
                 }
             }
@@ -48,7 +46,6 @@ public abstract class AbstractCSVDAO<T extends Entity> extends AbstractFileDAO<T
         return arr;
     }
     //4tenie iz faula
-
     @Override
     public ArrayList<T> read() {
         ArrayList<T> list = new ArrayList<>();//4to bi ne sly4ilos null ne vernem
@@ -76,10 +73,45 @@ public abstract class AbstractCSVDAO<T extends Entity> extends AbstractFileDAO<T
             file.seek(file.length());//записіваем с последней строки
 
             // preobrazovat v stroky i srazy zapisivaem потом получаем байты
-
             file.write(viewEntity(entity).getBytes());
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public void update(T t) {
+
+    }
+
+    @Override
+    public void delete(T entity) {
+        try {
+            RandomAccessFile file = null;
+            ArrayList<T> list = new ArrayList<>();
+            file = getDataFile();
+            long [] startAndEnd = getStartAndEndOfStr(file, entity);
+            if (startAndEnd[0] == 0 && startAndEnd[1] == 0) {
+                System.out.println("This entity is not found in target file");
+                return;
+            }
+            file.seek(startAndEnd[1]);
+
+            String line;
+            while ((line = file.readLine()) != null) {
+                list.add(parseEntity(line));
+            }
+
+            file.setLength(startAndEnd[0]-2L);
+            for (T e:list) {
+                create(e);
+            }
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }
