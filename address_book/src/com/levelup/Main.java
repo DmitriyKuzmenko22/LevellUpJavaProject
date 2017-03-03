@@ -17,27 +17,20 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) {
-//        new MyDataTableFrame();
+        new MyDataTableFrame();
 
-        FileDataProviderImpl provider = new FileDataProviderImpl("");
+//        FileDataProviderImpl provider = new FileDataProviderImpl("");
+//
+//        DAO<Street> streetDAO = new StreetCSVDAOImpl(provider, "street.csv");
+//
+//        provider.openConnection();
+//
+//        streetDAO.create(new Street(7L, "Topolia_1"));
+//
+//        ArrayList<Street> streets = streetDAO.read();
+//
+//        System.out.println(streets);
+//    }
 
-        DAO<Street> streetDAO = new StreetCSVDAOImpl(provider, "street.csv");
-
-        provider.openConnection();
-
-       // streetDAO.create(new Street(10L, "Topolia_221"));
-
-        streetDAO.delete(new Street(9L,"Topolia_1"));
-
-        ArrayList<Street> streets = streetDAO.read();
-
-        System.out.println(streets);
-
-        /*   if (line.startwith(id)){
-            end=file.getFilePointer();
-            start=end-line.lenght();*/
     }
-
-
-
 }

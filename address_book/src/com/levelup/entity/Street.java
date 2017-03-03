@@ -23,6 +23,4 @@ public class Street extends Entity {
     public void setStreetName(String streetName) {
         this.streetName = streetName;
     }
-
-
 }
