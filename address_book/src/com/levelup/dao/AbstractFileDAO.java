@@ -17,7 +17,7 @@ public abstract class AbstractFileDAO<T> implements DAO<T> {
     public AbstractFileDAO(DataProvider fileDataProvider, String fileName) {
         this.fileDataProvider = (FileDataProviderImpl) fileDataProvider;
         this.fileName = fileName;
-        this.fileDataProvider.appendFile(fileName);
+        this.fileDataProvider.appendFile(fileName);// стрингбилдерс , создать рандом аксес файл для каждого переданного файла и проинициализировать мапу
     }
 
     public RandomAccessFile getDataFile() throws IOException {
