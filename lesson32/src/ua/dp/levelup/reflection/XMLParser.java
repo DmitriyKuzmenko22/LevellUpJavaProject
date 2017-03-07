@@ -38,4 +38,30 @@ public class XMLParser {
         builder.append(String.format("</%s>", clazz.getSimpleName()));//simple name єто название класса
         return builder.toString();
     }
+
+    public Object parseXML(String xml,Class clazz){
+        try {
+            Object obj = clazz.newInstance(); //получить обїект єтого класса,новій инстанст обьект , ссілку нашего бука
+            String[] lines=xml.split("\r\n");
+
+            for (String line: lines){
+                //перебираем каждую строку из наших строк
+                if (line.trim().equals(String.format("<%s>",clazz.getSimpleName()))||line.trim().equals(String.format("</%s>",clazz.getSimpleName()))) continue;
+                //если встречается открівающая или закрівающаяся строка то мі ее попускаем
+
+                int startIndex=line.indexOf("<")+1;
+                int endIndex=line.indexOf(">");
+                String fieldName= line.substring(startIndex,endIndex);//получаем название филда, переменной нашей
+
+            }
+
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+
+    }
 }
