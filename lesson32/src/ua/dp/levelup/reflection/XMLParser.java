@@ -52,12 +52,11 @@ public class XMLParser {
                 int startIndex=line.indexOf("<")+1;
                 int endIndex=line.indexOf(">");
                 String fieldName= line.substring(startIndex,endIndex);//получаем название филда, переменной нашей
+                Field field=clazz.getDeclaredField(fieldName);//записіваем
 
             }
 
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
+        } catch (InstantiationException | NoSuchFieldException | IllegalAccessException e) {
             e.printStackTrace();
         }
 
