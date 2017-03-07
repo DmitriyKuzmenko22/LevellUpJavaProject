@@ -16,7 +16,7 @@ public class StreetCSVDAOImpl extends AbstractCSVDAO<Street> {
 
     @Override
     protected Street parseEntity(String str) {
-        String[] params = str.split(";");
+        String[] params = str.split(":");
 
         long id = Long.parseLong(params[0]);
         String streetName = params[1];

@@ -65,6 +65,8 @@ public abstract class AbstractJSONDAO<T extends Entity> extends AbstractFileDAO<
             file.seek(position);
             // read lines till the end of the stream
             while ((str = file.readLine()) != null) {
+                if (str.equals("")) continue;
+                if (str.equals(FOOTER_JSON)) break;
                 result.add(parseEntity(str));
             }
         } catch (IOException e) {
