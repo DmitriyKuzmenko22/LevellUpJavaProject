@@ -1,7 +1,10 @@
 package ua.dp.levelup.reflection;
 
+import java.io.File;
 import java.lang.reflect.Field;
 import java.util.SimpleTimeZone;
+
+import static javafx.scene.input.KeyCode.T;
 
 /**
  * Created by java on 07.03.2017.
@@ -66,7 +69,15 @@ public class Main {
         System.out.println(bookAsXML);
 
         Author author= new Author("John","Doe",44);
+
+
         String authorToXML=parser.toXML(author);
+        System.out.println("_________________parser.toXML");
         System.out.println(authorToXML);
+
+       String authorTest = (String) parser.parseXML(authorToXML, Author.class);
+        System.out.println("_________________parseFromXML");
+        System.out.println(authorTest);
+
     }
 }

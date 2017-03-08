@@ -11,7 +11,7 @@ import com.levelup.entity.Street;
 public class CitizenCSVDAOImpl extends AbstractCSVDAO<Citizen> {
 
     public CitizenCSVDAOImpl(DataProvider fileDataProvider, String fileName) {
-        super(fileDataProvider, fileName, "id;fName;lName;age;street_if");
+        super(fileDataProvider, fileName, "id;fName;lName;age;street_id");
     }
 
     @Override
