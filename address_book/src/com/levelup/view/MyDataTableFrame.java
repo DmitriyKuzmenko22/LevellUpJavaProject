@@ -10,17 +10,30 @@ import com.levelup.view.impl.CitizenTablePanel;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
 
 /**
  * Created by Алексей on 12.01.2017.
  */
 public class MyDataTableFrame extends JFrame {
 
-    public MyDataTableFrame() {
+    public MyDataTableFrame() throws IOException, IllegalAccessException, InstantiationException, ClassNotFoundException {
         init();
     }
 
-    public void init() {
+    public void init() throws IOException, ClassNotFoundException, IllegalAccessException, InstantiationException {
+
+        Properties properties=new Properties();
+        properties.load(new FileInputStream("co nfig.properties"));
+
+        String citizenDaoClass=properties.getProperty("citizen.dao");
+
+        Class.forName(citizenDaoClass).newInstance();
+
+
         Container container = getContentPane();
 
         TabbedPane tabbedPane = new TabbedPane();
