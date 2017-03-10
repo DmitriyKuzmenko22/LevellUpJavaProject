@@ -11,9 +11,22 @@ public class Author {
     @ToXML
     private int age;
 
+    public Author(){
+
+    }
+
     public Author(String firstName, String lastName, int age) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "Author{" +
+                "lastName='" + lastName + '\'' +
+                ", age=" + age +
+                ", firstName='" + firstName + '\'' +
+                '}';
     }
 }

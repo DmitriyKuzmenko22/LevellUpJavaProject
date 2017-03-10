@@ -65,19 +65,19 @@ public class Main {
         }
 
         XMLParser parser = new XMLParser();
-        String bookAsXML= parser.toXML(book);
-        System.out.println(bookAsXML);
+//        String bookAsXML= parser.toXML(book);
+//        System.out.println(bookAsXML);
 
         Author author= new Author("John","Doe",44);
+        String authorAsXML=parser.toXML(author);
+        System.out.println(authorAsXML);
+        Author fromXml=(Author) parser.parseXML(authorAsXML,Author.class);
+        System.out.println(fromXml);
+//Lombok библиотека без геттеров и сеттеров
 
-
-        String authorToXML=parser.toXML(author);
-        System.out.println("_________________parser.toXML");
-        System.out.println(authorToXML);
-
-       String authorTest = (String) parser.parseXML(authorToXML, Author.class);
-        System.out.println("_________________parseFromXML");
-        System.out.println(authorTest);
+//       String authorTest = (String) parser.parseXML(authorToXML, Author.class);
+//        System.out.println("_________________parseFromXML");
+//        System.out.println(authorTest);
 
     }
 }
