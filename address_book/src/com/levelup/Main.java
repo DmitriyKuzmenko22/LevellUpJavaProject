@@ -2,6 +2,7 @@ package com.levelup;
 
 import com.levelup.dao.DAO;
 import com.levelup.dao.DataProvider;
+import com.levelup.dao.impl.CitizenJSONDAOImpl;
 import com.levelup.dao.impl.FileDataProviderImpl;
 import com.levelup.dao.impl.StreetCSVDAOImpl;
 import com.levelup.entity.Street;
@@ -9,15 +10,21 @@ import com.levelup.view.MyDataTableFrame;
 import com.levelup.view.impl.CitizenTablePanel;
 
 import javax.swing.*;
+import java.io.IOException;
+import java.lang.reflect.Constructor;
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 /**
  * Created by java on 10.01.2017.
  */
 public class Main {
 
-    public static void main(String[] args) {
-        new MyDataTableFrame();
+    public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, IOException {
+       MyDataTableFrame myDataTableFrame= new MyDataTableFrame();
+
+
+
 
 //        FileDataProviderImpl provider = new FileDataProviderImpl("");
 //

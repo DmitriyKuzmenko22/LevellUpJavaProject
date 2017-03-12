@@ -12,7 +12,7 @@ import static javafx.scene.input.KeyCode.T;
 public class Main {
     public static void main(String[] args) {
         Book book=new Book(14);
-       // book.setAuthor();
+        // book.setAuthor();
         book.setAuthor("Puskin");
         book.setBookNmae("Book1");
         book.setPageCount(32);
@@ -23,7 +23,7 @@ public class Main {
 
         System.out.println("Book field:");
         Field[] fields=bookClass.getFields();//возвращает поля с публичнім доступом
-      //  Method[] fields1=bookClass.getMethods();
+        //  Method[] fields1=bookClass.getMethods();
 
         for (Field field: fields) System.out.println(field.getName());
 
@@ -32,9 +32,9 @@ public class Main {
 
         System.out.println("Book declared fields:");
         Field[] declaredFields=bookClass.getDeclaredFields();//возвращает все поля
-      //  Method[] fields22=bookClass.getDeclaredMethods();
+        //  Method[] fields22=bookClass.getDeclaredMethods();
         for (Field field: declaredFields) System.out.println(field.getName());
-      //  for (Method method: fields22) System.out.println(method.getName());
+        //  for (Method method: fields22) System.out.println(method.getName());
 
 
         try {
