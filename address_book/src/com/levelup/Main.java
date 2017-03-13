@@ -20,8 +20,8 @@ import java.util.LinkedList;
  */
 public class Main {
 
-    public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, IOException {
-       MyDataTableFrame myDataTableFrame= new MyDataTableFrame();
+    public static void main(String[] args) throws Exception {
+        new MyDataTableFrame();
 
 
 

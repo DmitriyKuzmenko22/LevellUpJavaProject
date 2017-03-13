@@ -13,6 +13,7 @@ import java.awt.*;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.lang.reflect.Constructor;
 import java.util.Properties;
 
 /**
@@ -20,26 +21,26 @@ import java.util.Properties;
  */
 public class MyDataTableFrame extends JFrame {
 
-    public MyDataTableFrame() throws IOException, IllegalAccessException, InstantiationException, ClassNotFoundException {
+    public MyDataTableFrame() throws Exception {
         init();
     }
 
-    public void init() throws IOException, ClassNotFoundException, IllegalAccessException, InstantiationException {
+    public void init()throws Exception {
 
         Properties properties=new Properties();
-        properties.load(new FileInputStream("co nfig.properties"));
+        properties.load(new FileInputStream("config.properties"));
 
-        String citizenDaoClass=properties.getProperty("citizen.dao");
+        String citizenDaoClass = properties.getProperty("citizen.csv.dao");
 
-        Class.forName(citizenDaoClass).newInstance();
-
+       // Class.forName(citizenDaoClass).newInstance();
+        Constructor<?> constructor = Class.forName(citizenDaoClass).getConstructor(DataProvider.class, String.class);
 
         Container container = getContentPane();
 
         TabbedPane tabbedPane = new TabbedPane();
 
         DataProvider provider=new FileDataProviderImpl();//принимает название директорий
-        DAO<Citizen> citizenDAO=new CitizenJSONDAOImpl(provider,"citizen.json");
+        DAO<Citizen> citizenDAO = (DAO<Citizen>) constructor.newInstance(provider, properties.getProperty("citizen.csv.file.name"));
 
         CitizenTablePanel citizenTablePanel = new CitizenTablePanel(citizenDAO);
         tabbedPane.add(citizenTablePanel);

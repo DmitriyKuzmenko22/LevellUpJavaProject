@@ -11,7 +11,7 @@ import com.levelup.entity.Citizen;
 public class CitizenXMLDAOImpl extends AbstractXMLDAO<Citizen> {
 
     public CitizenXMLDAOImpl(DataProvider fileDataProvider, String fileName) {
-        super(fileDataProvider, fileName, "<CitizenList>","/<CitizenList>");
+        super(fileDataProvider, fileName, "<CitizenList>", "</CitizenList>", Citizen.class);
     }
 
     @Override
@@ -21,8 +21,9 @@ public class CitizenXMLDAOImpl extends AbstractXMLDAO<Citizen> {
 
     @Override
     public String viewEntity(Citizen entity) {
-        return entity.getId() + ";" + entity.getFistName() + ";" + entity.getLastName() +
-                entity.getAge() + ";" + entity.getStreetId() + "\r\n";
+        return parser.toXML(entity);
+      /*  return entity.getId() + ";" + entity.getFistName() + ";" + entity.getLastName() +
+                entity.getAge() + ";" + entity.getStreetId() + "\r\n";*/
     }
 }
    /* @Override

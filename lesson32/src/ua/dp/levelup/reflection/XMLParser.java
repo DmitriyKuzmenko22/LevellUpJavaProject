@@ -49,7 +49,8 @@ public class XMLParser {
 
             for (String line : lines) {
                 //перебираем каждую строку из наших строк
-                if (line.trim().equals(String.format("<%s>", clazz.getSimpleName())) || line.trim().equals(String.format("</%s>", clazz.getSimpleName())))
+                if (line.trim().equals(String.format("<%s>", clazz.getSimpleName()))
+                        || line.trim().equals(String.format("</%s>", clazz.getSimpleName())))
                     continue;
                 //если встречается открівающая или закрівающаяся строка то мі ее попускаем
                 //<%s> симпл континие проверяем есть ли название нашего класса в ХМЛ
