@@ -1,0 +1,6 @@
+environment:
+  dev:
+    server.host: http://localhost:7070
+    db.url: jdbc:usernarm:userpass@test
+  qa:
+    server.host: http://qa.test:8080
