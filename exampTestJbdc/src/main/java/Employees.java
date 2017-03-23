@@ -16,4 +16,18 @@ public class Employees {
         this.name_first = name_first;
         this.name_last = name_last;
     }
+
+    @Override
+    public String toString() {
+        return "Employees{" +
+                "id=" + id +
+                ", name_first='" + name_first + '\'' +
+                ", name_last='" + name_last + '\'' +
+                ", name_second='" + name_second + '\'' +
+                ", salary=" + salary +
+                ", department_id=" + department_id +
+                ", post_id=" + post_id +
+                ", date_create=" + date_create +
+                '}';
+    }
 }
