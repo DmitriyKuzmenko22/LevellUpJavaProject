@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://unikey.hopto.org:3306/citizendim?useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "dimon", "12345");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/citizen?useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "1234");
             Statement statement = connection.createStatement();
             //ResultSet resultSet = statement.executeQuery("SELECT * FROM employees");
             ResultSet resultSet1=statement.executeQuery("SELECT * FROM employees");
