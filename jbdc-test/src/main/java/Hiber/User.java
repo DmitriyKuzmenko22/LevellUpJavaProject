@@ -1,11 +1,11 @@
-package Hiber;
+package hiber;
 
 import javax.persistence.*;
 
 /**
  * Created by java on 28.03.2017.
  */
-
+//
 @Entity
 @Table(name="USER", indexes = {
         @Index(columnList="email_idx", name="email_idx")})
@@ -82,7 +82,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "Hiber.User{" +
+        return "hiber.User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
