@@ -7,8 +7,9 @@
         <property name="connection.pool_size">10</property>
         <property name="dialect">org.hibernate.dialect.MySQL55Dialect</property>
         <property name="show_sql">true</property>
-        <property name="hbm2ddl.auto">create</property>
+        <property name="hbm2ddl.auto">update</property>
         <property name="hibernate.connection.autocommit">true</property>
-        <mapping class="Hiber.User"/>
+        <mapping class="hiber.Employee"/>
     </session-factory>
 </hibernate-configuration>
+//
