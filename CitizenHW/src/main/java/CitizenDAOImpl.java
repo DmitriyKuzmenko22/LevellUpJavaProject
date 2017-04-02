@@ -12,6 +12,7 @@ public class CitizenDAOImpl<T extends Citizen> implements DAO<Citizen> {
         this.connection = connection;
     }
 
+    @Override
     public void create(Citizen citizen) throws SQLException {
         PreparedStatement preparedStatement =
                 connection.prepareStatement("INSERT INTO citizen (first_Name, last_Name, age) VALUES(?,?,?)",
