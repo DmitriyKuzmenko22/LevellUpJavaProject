@@ -30,10 +30,10 @@ public class App {
            transaction.commit();
 
             //Query<Employee> query = session.createQuery("from Employee", Employee.class);
-            Query<Working_days> query = session.createQuery("from Working_days", Working_days.class);
-            List<Working_days> list = query.list();
+            Query<employees_tangibles> query = session.createQuery("from employees_tangibles", employees_tangibles.class);
+            List<employees_tangibles> list = query.list();
 
-            for (Working_days e : list) {
+            for (employees_tangibles e : list) {
                 System.out.println(e);
             }
 

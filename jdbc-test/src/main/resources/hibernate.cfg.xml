@@ -14,6 +14,10 @@
         <mapping class="hiber.Posts" />
         <mapping class="hiber.Salaries_paid" />
         <mapping class="hiber.Working_days" />
+        <mapping class="hiber.employees_courses" />
+        <mapping class="hiber.Courses" />
+        <mapping class="hiber.Tangibles" />
+        <mapping class="hiber.employees_tangibles" />
 
     </session-factory>
 </hibernate-configuration>
