@@ -81,7 +81,7 @@ public class App {
             Query<Department> departmentQuery = session.createQuery("from Department where id = :id", Department.class);
             departmentQuery.setParameter("id", 1L);
 
-            Department department = departmentQuery.uniqueResult();
+            Department department = departmentQuery.uniqueResult(); // возвращаем строку с ид 1 из таблиці департмента
 
             Query<Posts> postQuery = session.createQuery("from Posts where id = :id", Posts.class);
             postQuery.setParameter("id", 1L);

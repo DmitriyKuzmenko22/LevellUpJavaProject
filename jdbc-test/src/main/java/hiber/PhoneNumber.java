@@ -26,7 +26,7 @@ public class PhoneNumber {
     private String number;
 
     @OneToOne(fetch = FetchType.EAGER)
-    @PrimaryKeyJoinColumn(name = "id_employee")
+    @JoinColumn(name = "id_employee")
     private Employee employee;
 
     public PhoneNumber(String number, Employee employee) {
