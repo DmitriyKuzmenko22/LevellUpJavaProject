@@ -27,8 +27,8 @@ public class Posts {
     @Column(name = "date_create")
     private Date creationDate;
 
-    @OneToOne(fetch = FetchType.LAZY,mappedBy = "post_id")
-    private Employee employees;
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "post")
+    private List<Employee> employees;
 
     public Posts(String title, Date creationDate) {
         this.title = title;

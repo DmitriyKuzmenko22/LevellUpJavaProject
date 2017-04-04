@@ -3,6 +3,7 @@ package hiber;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -15,6 +16,8 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @Entity
+
+@ToString(exclude = "employees")
 @Table(name = "departments")
 public class Department {
 
@@ -34,11 +37,5 @@ public class Department {
         this.creationDate = creationDate;
     }
 
-    @Override
-    public String toString() {
-        return "Department{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                '}';
-    }
+
 }
