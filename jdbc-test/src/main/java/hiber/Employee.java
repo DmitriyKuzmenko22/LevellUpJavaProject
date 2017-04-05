@@ -40,7 +40,10 @@ public class Employee {
     @Column(name = "date_create")
     private Date creationDate = new Date();
 
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "employee")
+    //@OneToOne(fetch = FetchType.LAZY, mappedBy = "employee")
+    //private PhoneNumber phoneNumber;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="phone_id")
     private PhoneNumber phoneNumber;
 
    @ManyToOne(fetch = FetchType.LAZY)
@@ -59,5 +62,10 @@ public class Employee {
         this.department=department;
         this.post=post;
 
+    }
+
+
+    public void setPhoneNumber(PhoneNumber phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 }

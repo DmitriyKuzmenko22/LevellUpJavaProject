@@ -60,6 +60,7 @@
 //
 package hiber;
 
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -94,6 +95,7 @@ public class App {
 
             Transaction transaction = session.getTransaction();
 
+
             transaction.begin();
             session.save(employee);
             session.save(phoneNumber);
@@ -104,7 +106,6 @@ public class App {
 
             Query<Employee> query = session.createQuery("from Employee", Employee.class);
             List<Employee> list = query.list();
-
             for (Employee e : list) {
                 System.out.println(e);
             }

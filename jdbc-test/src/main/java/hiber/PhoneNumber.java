@@ -25,8 +25,12 @@ public class PhoneNumber {
     @Column(length = 15)
     private String number;
 
-    @OneToOne(fetch = FetchType.EAGER)
+    /*@OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_employee")
+    private Employee employee;
+*/
+
+    @OneToOne(mappedBy = "phoneNumber")
     private Employee employee;
 
     public PhoneNumber(String number, Employee employee) {
