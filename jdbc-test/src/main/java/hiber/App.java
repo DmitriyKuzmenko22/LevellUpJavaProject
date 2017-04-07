@@ -65,7 +65,9 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
+import org.hibernate.query.criteria.internal.CriteriaSubqueryImpl;
 
+import javax.persistence.criteria.*;
 import java.awt.*;
 import java.util.Date;
 import java.util.List;
@@ -121,6 +123,14 @@ public class App {
 //            for (Employee e : list) {
 //                System.out.println(e);
 //            }
+
+            CriteriaBuilder criteriaBuilder=session.getCriteriaBuilder();
+            CriteriaQuery<Yacht> criteriaQuery=session.getCriteriaBuilder().createQuery(Yacht.class);
+            Root<Yacht> yachtRoot=criteriaQuery.from(Yacht.class);
+            Predicate predicate=criteriaBuilder.equal(yachtRoot.get("model"), "3444");
+
+//            CriteriaQuery<Yacht> query=criteriaQuery.where(predicate);
+//            query.get
 
         } finally {
             System.out.println("Good bye!");
