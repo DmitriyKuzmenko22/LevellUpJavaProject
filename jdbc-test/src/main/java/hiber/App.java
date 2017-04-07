@@ -66,6 +66,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import java.awt.*;
 import java.util.Date;
 import java.util.List;
 
@@ -89,26 +90,37 @@ public class App {
 
             Posts post = postQuery.uniqueResult();
 
-            Employee employee = new Employee("Andrey", "Ivanov", "Robertovich", 55000, department, post);
+//            Employee employee = new Employee("Andrey", "Ivanov", "Robertovich", 55000, department, post);
+//
+//
+//            employee.setSex(Sex.MALE);
+//            employee.setCity("Dnepr");
+//            employee.setStreetName("Krasnaya");
+//            employee.setZipCode("49000");
+//
+//            Car car = new Car(270,"BMW");
+//            employee.setCar(car);
+//
+//            PhoneNumber phoneNumber = new PhoneNumber("380930000000", employee);
 
-            PhoneNumber phoneNumber = new PhoneNumber("380930000000", employee);
+            Yacht yacht=new Yacht("3444",5,10,15);
 
             Transaction transaction = session.getTransaction();
 
 
             transaction.begin();
-            session.save(employee);
-            session.save(phoneNumber);
-            employee.setPhoneNumber(phoneNumber);
-
-            session.update(employee);
+            session.save(yacht);
+//            session.save(phoneNumber);
+//            employee.setPhoneNumber(phoneNumber);
+//
+//            session.update(employee);
             transaction.commit();
 
-            Query<Employee> query = session.createQuery("from Employee", Employee.class);
-            List<Employee> list = query.list();
-            for (Employee e : list) {
-                System.out.println(e);
-            }
+//            Query<Employee> query = session.createQuery("from Employee", Employee.class);
+//            List<Employee> list = query.list();
+//            for (Employee e : list) {
+//                System.out.println(e);
+//            }
 
         } finally {
             System.out.println("Good bye!");
