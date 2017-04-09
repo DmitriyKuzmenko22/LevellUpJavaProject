@@ -65,7 +65,10 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
+import org.hibernate.query.criteria.internal.CriteriaSubqueryImpl;
 
+import javax.persistence.criteria.*;
+import java.awt.*;
 import java.util.Date;
 import java.util.List;
 
@@ -89,26 +92,45 @@ public class App {
 
             Posts post = postQuery.uniqueResult();
 
-            Employee employee = new Employee("Andrey", "Ivanov", "Robertovich", 55000, department, post);
+//            Employee employee = new Employee("Andrey", "Ivanov", "Robertovich", 55000, department, post);
+//
+//
+//            employee.setSex(Sex.MALE);
+//            employee.setCity("Dnepr");
+//            employee.setStreetName("Krasnaya");
+//            employee.setZipCode("49000");
+//
+//            Car car = new Car(270,"BMW");
+//            employee.setCar(car);
+//
+//            PhoneNumber phoneNumber = new PhoneNumber("380930000000", employee);
 
-            PhoneNumber phoneNumber = new PhoneNumber("380930000000", employee);
+            Yacht yacht=new Yacht("3444",5,10,15);
 
             Transaction transaction = session.getTransaction();
 
 
             transaction.begin();
-            session.save(employee);
-            session.save(phoneNumber);
-            employee.setPhoneNumber(phoneNumber);
-
-            session.update(employee);
+            session.save(yacht);
+//            session.save(phoneNumber);
+//            employee.setPhoneNumber(phoneNumber);
+//
+//            session.update(employee);
             transaction.commit();
 
-            Query<Employee> query = session.createQuery("from Employee", Employee.class);
-            List<Employee> list = query.list();
-            for (Employee e : list) {
-                System.out.println(e);
-            }
+//            Query<Employee> query = session.createQuery("from Employee", Employee.class);
+//            List<Employee> list = query.list();
+//            for (Employee e : list) {
+//                System.out.println(e);
+//            }
+
+            CriteriaBuilder criteriaBuilder=session.getCriteriaBuilder();
+            CriteriaQuery<Yacht> criteriaQuery=session.getCriteriaBuilder().createQuery(Yacht.class);
+            Root<Yacht> yachtRoot=criteriaQuery.from(Yacht.class);
+            Predicate predicate=criteriaBuilder.equal(yachtRoot.get("model"), "3444");
+
+//            CriteriaQuery<Yacht> query=criteriaQuery.where(predicate);
+//            query.get
 
         } finally {
             System.out.println("Good bye!");

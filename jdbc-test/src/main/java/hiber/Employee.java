@@ -18,6 +18,8 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+@SecondaryTable(name = "EMPLOYEE_DETAILS",
+        pkJoinColumns = @PrimaryKeyJoinColumn(name = "ID_EMPLOYEE"))
 public class Employee {
 
     @Id
@@ -54,6 +56,23 @@ public class Employee {
     @JoinColumn(name = "post_id", nullable = false)
     private Posts post;//class Posts
 
+    @Column(table = "EMPLOYEE_DETAILS")
+    @Enumerated(EnumType.STRING)// хранить в виде строки
+    private Sex sex=Sex.UNKNOWN;
+
+    @Column(table = "EMPLOYEE_DETAILS")
+    private String city;
+
+    @Column(table = "EMPLOYEE_DETAILS")
+    private String streetName;
+
+    @Column(table = "EMPLOYEE_DETAILS")
+    private String zipCode;
+
+    @Embedded
+    private Car car;
+
+
     public Employee(String firstName, String lastName, String secondName, double salary,Department department, Posts post) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -68,4 +87,6 @@ public class Employee {
     public void setPhoneNumber(PhoneNumber phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+
+
 }
