@@ -69,12 +69,13 @@ public class HW_35_1 {
             //Вывести список фамилий, с указанием количества повторений этих фамилий в общем списке
 //            Query<Employee> query = session.createQuery("select name_last, count(name_last) from Employee" +
 //                    "group by name_last", Employee.class);
-            Query<Employee> query = session.createQuery("select emp.color, sum(emp.salary), count(emp)" +
-                    "from Employee emp" + "group by emp.color", Employee.class);
-            List<Employee> list = query.list();
-            for (Employee e : list) {
-                System.out.println(e);
+            Query<Object[]> query = session.createQuery("select lastName, count(emp.lastName) " +
+                    "from Employee emp group by emp.salary");
+            List<Object[]> list = query.list();
+            for (Object[] e : list) {
+                System.out.println(e[0].toString()+" "+e[1].toString());
             }
+            //Вывести список фамилий, с указанием количества повторений этих фамилий в общем списке
 
 
 
