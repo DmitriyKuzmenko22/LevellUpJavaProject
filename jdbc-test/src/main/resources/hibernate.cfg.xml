@@ -21,6 +21,13 @@
         <mapping class="hiber.PhoneNumber" />
         <mapping class="hiber.Boat" />
         <mapping class="hiber.Yacht" />
+<<<<<<< HEAD
+=======
+        <mapping class="hiber.Sex" />
+        <mapping class="hiber.Car" />
+
+
+>>>>>>> 95e4c5e1ca9fb9012f9b0e7ca09fbbaed6aadd16
 
     </session-factory>
 </hibernate-configuration>
