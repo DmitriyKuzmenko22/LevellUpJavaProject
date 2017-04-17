@@ -31,7 +31,6 @@ public class Resources implements Runnable  {
         Thread thread=new Thread(){
           @Override
             public void run(){
-
               for (int i = 0; i<1000;i++) {
                   znach[0]++;
               }
@@ -54,3 +53,15 @@ public class Resources implements Runnable  {
         thread2.start();
     }
 }
+
+   /* @Override
+    public void run() {
+        synchronized (thread){
+            if (thread.isAlive()){
+                try {
+                    thread.wait();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }*/
