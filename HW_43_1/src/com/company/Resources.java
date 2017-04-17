@@ -33,6 +33,7 @@ public class Resources implements Runnable  {
             public void run(){
               for (int i = 0; i<1000;i++) {
                   znach[0]++;
+               //   System.out.println("result " + znach[0] + " for " + Thread.currentThread().getName());
               }
               System.out.println("result "+znach[0]+" for "+ Thread.currentThread().getName());
           }
@@ -41,14 +42,24 @@ public class Resources implements Runnable  {
         Thread thread2=new Thread(){
             @Override
             public void run() {
+                synchronized (thread) {
+                    if (thread.isAlive()){
+                        try {
+                            thread.join();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
                     for (int i = 0; i < 1000; i++) {
                         znach[0]++;
+                     //   System.out.println("result " + znach[0] + " for " + Thread.currentThread().getName());
                     }
                     System.out.println("result " + znach[0] + " for " + Thread.currentThread().getName());
                 }
+            }
         };
         thread.start();
-        thread.join();
+     //   thread.join(); либо так тоже работает корректно (без синхронизации в run второго потока)
 
         thread2.start();
     }
