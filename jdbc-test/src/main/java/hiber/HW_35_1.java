@@ -4,6 +4,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import static hiber.HibernateUtil.getSessionFactory;
@@ -67,16 +69,46 @@ public class HW_35_1 {
             }*/
 
             //Вывести список фамилий, с указанием количества повторений этих фамилий в общем списке
-//            Query<Employee> query = session.createQuery("select name_last, count(name_last) from Employee" +
-//                    "group by name_last", Employee.class);
-            Query<Object[]> query = session.createQuery("select lastName, count(emp.lastName) " +
-                    "from Employee emp group by emp.salary");
+//            Query<Object[]> query = session.createQuery("select lastName, count(emp.lastName) " +
+//                    "from Employee emp group by emp.salary");
+//            List<Object[]> list = query.list();
+//            for (Object[] e : list) {
+//                System.out.println(e[0].toString()+" "+e[1].toString());
+//            }
+
+            //находим фимилии с буквой н, выводим ИД и фамилию
+//            Query<Object[]> query = session.createQuery("select id, lastName from Employee where lastName like '%н%'");
+//            List<Object[]> list = query.list();
+//            for (Object[] e : list) {
+//                System.out.println(e[0].toString()+" "+e[1].toString());
+//            }
+
+            //находим фимилии с буквой н , выводим только фамилии
+          /*  Query<String> query = session.createQuery("select lastName from Employee where lastName like '%н%'");
+            List<String> list = query.list();
+            for (String e : list) {
+                System.out.println(e);
+            }*/
+
+            //вывести список эмплоии у кого нет мобильных телефонов (вместо вывода списка бомжей)
+         /*   Query<Employee> query = session.createQuery("from Employee where phoneNumber is null");
+            List<Employee> list = query.list();
+            for (Employee e : list) {
+                System.out.println(e);
+            }*/
+
+            //эмлоии с зарплатой менее 1000 (по аналогии жители менее 18)
+           /* Query<Employee> query = session.createQuery("from Employee where salary<1000");
+            List<Employee> list = query.list();
+            for (Employee e : list) {
+                System.out.println(e);
+            }
+*/
+            Query<Object[]> query = session.createQuery("from Employee emp join  ");
             List<Object[]> list = query.list();
             for (Object[] e : list) {
-                System.out.println(e[0].toString()+" "+e[1].toString());
+                System.out.println(e);
             }
-            //Вывести список фамилий, с указанием количества повторений этих фамилий в общем списке
-
 
 
 
