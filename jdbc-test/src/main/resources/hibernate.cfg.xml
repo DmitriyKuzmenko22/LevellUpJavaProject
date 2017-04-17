@@ -1,9 +1,9 @@
 <hibernate-configuration>
     <session-factory>
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="connection.url">jdbc:mysql://localhost:3306/citizen</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/forum</property>
         <property name="connection.username">root</property>
-        <property name="connection.password">1234</property>
+        <property name="connection.password">qwerty</property>
         <property name="connection.pool_size">10</property>
         <property name="dialect">org.hibernate.dialect.MySQL55Dialect</property>
         <property name="show_sql">true</property>
@@ -21,10 +21,13 @@
         <mapping class="hiber.PhoneNumber" />
         <mapping class="hiber.Boat" />
         <mapping class="hiber.Yacht" />
+<<<<<<< HEAD
+=======
         <mapping class="hiber.Sex" />
         <mapping class="hiber.Car" />
 
 
+>>>>>>> 95e4c5e1ca9fb9012f9b0e7ca09fbbaed6aadd16
 
     </session-factory>
 </hibernate-configuration>

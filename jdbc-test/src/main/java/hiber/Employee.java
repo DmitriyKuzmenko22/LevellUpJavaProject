@@ -141,6 +141,9 @@ public class Employee {
         this.phoneNumber = phoneNumber;
     }
 
+<<<<<<< HEAD
+
+=======
     public Department getDepartment() {
         return department;
     }
@@ -196,4 +199,5 @@ public class Employee {
     public void setCar(Car car) {
         this.car = car;
     }
+>>>>>>> 95e4c5e1ca9fb9012f9b0e7ca09fbbaed6aadd16
 }
