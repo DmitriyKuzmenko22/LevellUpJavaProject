@@ -49,7 +49,7 @@ public class Resources implements Runnable  {
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
-                    }
+                    } else 
                     for (int i = 0; i < 1000; i++) {
                         znach[0]++;
                      //   System.out.println("result " + znach[0] + " for " + Thread.currentThread().getName());
