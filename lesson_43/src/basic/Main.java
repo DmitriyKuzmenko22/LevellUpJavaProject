@@ -32,8 +32,11 @@ public class Main {
         thread2.start();*/
         ExecutorService executorService= Executors.newFixedThreadPool(2);
 
-        executorService.execute(new basic.CounterRunnable(1,2,13));
-        executorService.execute(new basic.CounterRunnable(17,10,99));
+        CounterPrinter counterPrinter=new CounterPrinter();
+
+
+        executorService.execute(new basic.CounterRunnable(1,2,13, counterPrinter));
+        executorService.execute(new basic.CounterRunnable(17,10,99, counterPrinter));
 //        executorService.execute(new basic.CounterRunnable(4,3,36));
 //        executorService.execute(()-> System.out.println("Hello world"));
 
@@ -60,7 +63,8 @@ public class Main {
         executorService.shutdown();
     }
 
-    public static synchronized void print(String text){
-        System.out.println(text);
-    }
+    //    public static synchronized void print(String text){
+    //        System.out.println(text);
+    //    }
+    // запускаме все рандомно
 }
