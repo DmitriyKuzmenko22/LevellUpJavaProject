@@ -64,15 +64,3 @@ public class Resources implements Runnable  {
         thread2.start();
     }
 }
-
-   /* @Override
-    public void run() {
-        synchronized (thread){
-            if (thread.isAlive()){
-                try {
-                    thread.wait();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        }*/
