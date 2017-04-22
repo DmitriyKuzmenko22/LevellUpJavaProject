@@ -17,7 +17,7 @@ public class Main {
         emailSender.sendEmail("dp190792kdg@gmail.com","fgfgf","fgr");
         emailSender.sendEmail("dp190792kdg@gmail.com","vgergtgtrgtr","tyr");*/
 
-        ArrayBlockingQueue<EmailMessage> queue = new ArrayBlockingQueue<EmailMessage>(10);
+        ArrayBlockingQueue<EmailMessage> queue = new ArrayBlockingQueue<>(10);
         EmailProducer producer=new EmailProducer(queue);
 
         EmailConsumer consumer=new EmailConsumer(queue);
@@ -29,7 +29,6 @@ public class Main {
         consumer.start();
         consumer1.start();
         consumer2.start();
-
         Thread.sleep(10000);
 
     }

@@ -31,17 +31,19 @@ public enum EmailSender {
 
     public void sendEmail(String clientEmail, String messageText, String subject) {
         // Recipient's email ID needs to be mentioned.
-     //   String to = "levelup.java.16.6@gmail.com";
+        //String to = "levelup.java.16.6@gmail.com";
+        //final String password = "JavaLevelUp166";
+
 
         // email.Sender's email ID needs to be mentioned
-        final String from = "levelup.java.16.6@gmail.com";
+        final String from = "vorotnikovanton888@gmail.com";
+        final String password = "vorotnikov";
 
 
 
         // Get system properties
         Properties properties = System.getProperties();
 
-        final String password = "JavaLevelUp166";
         // Setup mail server
         properties.put("mail.smtp.auth", "true");
         properties.put("mail.smtp.starttls.enable", "true");
@@ -49,7 +51,7 @@ public enum EmailSender {
         properties.put("mail.smtp.port", "587");
 
         // Get the default Session object.
-        Session session = Session.getDefaultInstance(properties, new Authenticator() {
+               Session session = Session.getDefaultInstance(properties, new Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication(from, password);
             }

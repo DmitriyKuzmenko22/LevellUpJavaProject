@@ -14,13 +14,13 @@ public class EmailProducer {
         this.queue = queue;
     }
 
-    public void start(){
-        new Thread(()->{ //єто все ран
-            List<EmailMessage> messageList = Arrays.asList(new EmailMessage("dp190792kdg@gmail.com","testmessage","test"),
-                    new EmailMessage("user1@","testmessage","test"),
-                            new EmailMessage("user1@","testmessage","test"));
-            for (EmailMessage m :
-                    messageList) {
+    public void start() {
+        new Thread(() -> { //єто все ран
+            List<EmailMessage> messageList = Arrays.asList(
+                    new EmailMessage("dp190792kdg@gmail.com", "How are you?", "Hello Kitty"),
+                    new EmailMessage("dp190792kdg@gmail.com", "Go home", "home"),
+                    new EmailMessage("dp190792kdg@gmail.com", "we are visit for you", "visit"));
+            for (EmailMessage m:messageList) {
                 queue.offer(m);//добавляем в очередь через оффер
             }
         }).start();

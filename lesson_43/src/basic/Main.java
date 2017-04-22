@@ -254,7 +254,7 @@ public class Main {
                 e.printStackTrace();
             }
 
-            System.out.println("Begin email processing from" + sender);
+            System.out.println("Begin email processing from " + sender);
             sendMail(sender);
         }
     }
