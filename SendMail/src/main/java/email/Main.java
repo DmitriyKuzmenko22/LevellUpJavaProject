@@ -1,5 +1,7 @@
 package email;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.concurrent.ArrayBlockingQueue;
 
 /**
@@ -7,9 +9,10 @@ import java.util.concurrent.ArrayBlockingQueue;
  */
 public class Main {
     //private static Sender tlsSender = new Sender("dp190792kdg@gmail.com", "repmvtyrj");
+    private static String fileName = "message.txt";
 
-    public static void main(String[] args) throws InterruptedException {
-      //  tlsSender.send("This is Subject", "TLS: kak dela?", "dp190792kdg@gmail.com", "levelup.java.16.6@gmail.com");
+    public static void main(String[] args) throws InterruptedException, IOException {
+        //  tlsSender.send("This is Subject", "TLS: kak dela?", "dp190792kdg@gmail.com", "levelup.java.16.6@gmail.com");
        /* email: levelup.java.16.6@gmail.com
         password: JavaLevelUp166*/
 
@@ -29,7 +32,13 @@ public class Main {
         consumer.start();
         consumer1.start();
         consumer2.start();
+
         Thread.sleep(10000);
+
+       /* ReadFile readFile = new ReadFile("message.txt");
+        String s = readFile.readFile();
+        System.out.println(s);*/
+
 
     }
 }

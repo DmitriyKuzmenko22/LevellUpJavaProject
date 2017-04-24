@@ -2,9 +2,11 @@ package email; /**
  * Created by java on 21.04.2017.
  */
 
-import java.util.*;
 import javax.mail.*;
-import javax.mail.internet.*;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+import java.util.Properties;
 
 /**
  * Created by java on 21.04.2017.
@@ -51,7 +53,7 @@ public enum EmailSender {
         properties.put("mail.smtp.port", "587");
 
         // Get the default Session object.
-               Session session = Session.getDefaultInstance(properties, new Authenticator() {
+        Session session = Session.getDefaultInstance(properties, new Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication(from, password);
             }
