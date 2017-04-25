@@ -6,7 +6,10 @@ import javax.mail.*;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import java.util.Date;
 import java.util.Properties;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * Created by java on 21.04.2017.
@@ -31,7 +34,10 @@ public enum EmailSender {
         return instance;
     }*/
 
+    private volatile Lock lock= new ReentrantLock(); //volatile что бі не кєшировалось состояние
+
     public void sendEmail(String clientEmail, String messageText, String subject) {
+        lock.lock();
         // Recipient's email ID needs to be mentioned.
         //String to = "levelup.java.16.6@gmail.com";
         //final String password = "JavaLevelUp166";
@@ -77,9 +83,13 @@ public enum EmailSender {
 
             // Send message
             Transport.send(message);
-            System.out.println("Sent message successfully to: "+ clientEmail);
-        } catch (MessagingException mex) {
+            System.out.println(new Date()+ " Sent message successfully to: "+ clientEmail);
+
+            Thread.sleep(3000);
+        } catch (MessagingException | InterruptedException mex) {
             mex.printStackTrace();
         }
+
+        lock.unlock();
     }
 }

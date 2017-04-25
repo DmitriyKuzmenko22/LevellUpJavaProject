@@ -20,7 +20,6 @@ public class ReadFile {
         while ((line = randomAccessFile.readLine()) != null){
             builder.append(line);
         }
-
         return builder.toString();
     }
 

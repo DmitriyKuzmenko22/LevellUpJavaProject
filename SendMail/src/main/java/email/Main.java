@@ -2,7 +2,11 @@ package email;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * Created by java on 21.04.2017.
@@ -21,27 +25,64 @@ public class Main {
         emailSender.sendEmail("dp190792kdg@gmail.com","vgergtgtrgtr","tyr");*/
 
         ArrayBlockingQueue<EmailMessage> queue = new ArrayBlockingQueue<>(10);
-        EmailProducer producer=new EmailProducer(queue);
 
-        EmailConsumer consumer=new EmailConsumer(queue);
-        EmailConsumer consumer1=new EmailConsumer(queue);
-        EmailConsumer consumer2=new EmailConsumer(queue);
+        ExecutorService executorService = Executors.newFixedThreadPool(3);
 
-        producer.start();
+        EmailProducer producer = new EmailProducer(queue);
+        executorService.execute(new EmailConsumer(queue));
+        executorService.execute(new EmailConsumer(queue));
+        executorService.execute(new EmailConsumer(queue));
 
-        consumer.start();
-        consumer1.start();
-        consumer2.start();
+        //todo implement message send
+        List<EmailMessage> messageList = Arrays.asList(
+                new EmailMessage("vorotnikovanton888@gmail.com", "Hello Kitty", "Hello Kitty"),
+                new EmailMessage("dp190792kdg@gmail.com", "Hello Kitty", "home"),
+                new EmailMessage("dp190792kdg@gmail.com", "Hello Kitty", "visit"),
+                new EmailMessage("dmitrij.kuzmenko@privatbank.ua", "Hello Kitty", "Hello Kitty"),
+                new EmailMessage("dmitrij.kuzmenko@privatbank.ua", "Hello Kitty", "home"),
+                new EmailMessage("dmitrij.kuzmenko@privatbank.ua", "Hello Kitty", "visit"));
 
-        Thread.sleep(10000);
+        producer.sendMessage(messageList);
+
+
+        executorService.shutdown();
 
        /* ReadFile readFile = new ReadFile("message.txt");
         String s = readFile.readFile();
         System.out.println(s);*/
 
+    /*    public class Main {
+
+            public static void main(String[] args) throws InterruptedException {
+                ArrayBlockingQueue<EmailMessage> queue = new ArrayBlockingQueue<>(10);
+
+                EmailProducer producer = new EmailProducer(queue);
+
+                ExecutorService executorService = Executors.newFixedThreadPool(3);
+
+                executorService.execute(new EmailConsumer(queue));
+                executorService.execute(new EmailConsumer(queue));
+                executorService.execute(new EmailConsumer(queue));
+
+                List<EmailMessage> messageList = Arrays.asList(
+                        new EmailMessage("user1@yopmail.com", "text message", "text message"),
+                        new EmailMessage("user2@yopmail.com", "text message", "text message"),
+                        new EmailMessage("user3@yopmail.com", "text message", "text message"),
+                        new EmailMessage("user4@yopmail.com", "text message", "text message"),
+                        new EmailMessage("user5@yopmail.com", "text message", "text message"),
+                        new EmailMessage("user6@yopmail.com", "text message", "text message"),
+                        new EmailMessage("user7@yopmail.com", "text message", "text message"),
+                        new EmailMessage("user8@yopmail.com", "text message", "text message")
+                );
+                producer.sendMessage(messageList);
+
+                executorService.shutdown();
+            }
+        }*/
+    }
 
     }
-}
+
 /*
 package email;
 
