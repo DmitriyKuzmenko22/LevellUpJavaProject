@@ -80,7 +80,8 @@ import static hiber.HibernateUtil.getSessionFactory;
 public class App {
 
     public static void main(String[] args) {
-        try (SessionFactory sessionFactory = getSessionFactory(); Session session = sessionFactory.openSession();) {
+        try (SessionFactory sessionFactory = getSessionFactory();
+             Session session = sessionFactory.openSession();) {
 
             Query<Department> departmentQuery = session.createQuery("from Department where id = :id", Department.class);
             departmentQuery.setParameter("id", 1L);
