@@ -8,7 +8,7 @@ import java.util.ArrayList;
  */
 public class ReadFile {
 
-    RandomAccessFile randomAccessFile;
+    private RandomAccessFile randomAccessFile;
 
     public ReadFile(String file) throws FileNotFoundException {
         randomAccessFile=new RandomAccessFile(file,"r");
