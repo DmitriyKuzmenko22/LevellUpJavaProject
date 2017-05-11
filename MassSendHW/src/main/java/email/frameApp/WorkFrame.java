@@ -1,12 +1,19 @@
 package email.frameApp;
 
+import email.DAO.PacketDAO;
 import email.DAO.UsersDAO;
+import email.massSend.MassSender;
+import email.sender.EmailMessage;
 
 
 import javax.swing.*;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -19,11 +26,15 @@ public class WorkFrame extends JFrame {
     private JTextField subject;
     private JTextField message;
     private UsersDAO usersDAO;
+    private final PacketDAO packetDAO;
+    private final List<EmailMessage> messageList;
 
 
 
-    public WorkFrame(UsersDAO usersDAO) {
+    public WorkFrame(UsersDAO usersDAO, PacketDAO packetDAO) throws IOException {
         this.usersDAO = usersDAO;
+        this.messageList=new ArrayList<>();
+        this.packetDAO=new PacketDAO();
         setSize(500, 500);
         setTitle("Message");
         email = new JTextField();
@@ -60,9 +71,25 @@ public class WorkFrame extends JFrame {
         massSend.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                MassSender massSender=new MassSender(usersDAO);
+                MassSender massSender= null;
+                try {
+                    massSender = new MassSender(usersDAO, packetDAO);
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
                 massSender.setVisible(true);
                 setVisible(false);
+            }
+        });
+
+        endMessage.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                EmailMessage emailMessage2=textMessage();
+                messageList.add(emailMessage2);
+                packetDAO.emailProducer.sendMessage(messageList);
+
             }
         });
 
@@ -79,5 +106,17 @@ public class WorkFrame extends JFrame {
         });
 
 
+    }
+
+    public EmailMessage textMessage(){
+        EmailMessage emailMessage= new EmailMessage(email.getText(),message.getText(),subject.getText());
+        clearFields();
+        return emailMessage;
+    }
+
+    public void clearFields(){
+        email.setText("");
+        message.setText("");
+        subject.setText("");
     }
 }

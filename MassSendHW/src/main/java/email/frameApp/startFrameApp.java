@@ -1,5 +1,6 @@
 package email.frameApp;
 
+import email.DAO.PacketDAO;
 import email.DAO.UsersDAO;
 
 import org.hibernate.query.Query;
@@ -8,6 +9,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+
 /**
  * Created by Дмитрий on 08.05.2017.
  */
@@ -15,13 +18,14 @@ import java.awt.event.ActionListener;
 
 public class startFrameApp extends JFrame {
     UsersDAO usersDAO=new UsersDAO();
+    private final PacketDAO packetDAO=new PacketDAO();
 
     private JTextField logintxt;
     private JPasswordField pwdtxt;
     public boolean flagStartFrame=false;
 
 
-    public startFrameApp() {
+    public startFrameApp() throws IOException {
         //todo ubral pustou constructor
 
 
@@ -56,7 +60,12 @@ public class startFrameApp extends JFrame {
                 }
                 if (null != userAndPass1) {
                     usersDAO.setMainUser(userAndPass1);
-                    WorkFrame WorkFrame =new WorkFrame(usersDAO);
+                    WorkFrame WorkFrame = null;
+                    try {
+                        WorkFrame = new WorkFrame(usersDAO,packetDAO);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                     WorkFrame.setLocationRelativeTo(null);
                     WorkFrame.setVisible(true);
                     flagStartFrame=true;

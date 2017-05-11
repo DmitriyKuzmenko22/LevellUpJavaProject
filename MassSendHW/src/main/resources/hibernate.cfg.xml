@@ -10,7 +10,7 @@
         <property name="hbm2ddl.auto">update</property>
         <property name="hibernate.connection.autocommit">true</property>
         <mapping class="email.frameApp.UserAndPass" />
-        <mapping class="email.frameApp.PacketSend" />
+        <mapping class="email.massSend.PacketSend" />
 
 
     </session-factory>

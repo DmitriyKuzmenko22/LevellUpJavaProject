@@ -37,6 +37,7 @@ public class AdminPanel extends JFrame {
         panel.add(addUsers);
         readUsers();
 
+
         addUsers.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent arg0) {

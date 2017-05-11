@@ -1,5 +1,8 @@
 package email.sender;
 
+import email.sender.EmailConsumer;
+import email.sender.EmailMessage;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -20,12 +23,12 @@ public class EmailSenderFromFileList {
 
     }
 
-    private EmailMessage parseEmailMessage(String line) {
+    public EmailMessage parseEmailMessage(String line) {
         String str[] = line.split(",");
         return new EmailMessage(str[0], str[2], str[1]);
     }
 
-    private void readFromFile(RandomAccessFile file) throws IOException {
+    public void readFromFile(RandomAccessFile file) throws IOException {
         file.seek(0);
         String str;
         while ((str = file.readLine()) != null) {

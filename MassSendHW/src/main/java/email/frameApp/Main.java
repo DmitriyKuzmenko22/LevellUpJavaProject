@@ -3,6 +3,7 @@ package email.frameApp;
 
 
 import javax.swing.*;
+import java.io.IOException;
 
 
 /**
@@ -12,7 +13,7 @@ import javax.swing.*;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         System.out.println("Hello world");
 
       /*  UserTableModel userTableModel=new UserTableModel();

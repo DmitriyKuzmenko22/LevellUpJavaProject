@@ -1,6 +1,7 @@
 package email.DAO;
 
-import email.frameApp.PacketSend;
+import email.massSend.PacketSend;
+import email.sender.EmailSenderFromFileList;
 import email.sender.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

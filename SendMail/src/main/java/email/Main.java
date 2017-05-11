@@ -33,6 +33,10 @@ public class Main {
         executorService.execute(new EmailConsumer(queue));
         executorService.execute(new EmailConsumer(queue));
 
+       /* ReadFile readFile = new ReadFile("message.txt");
+        String s = readFile.readFile();
+        System.out.println(s);*/
+
         //todo implement message send
         List<EmailMessage> messageList = Arrays.asList(
                 new EmailMessage("vorotnikovanton888@gmail.com", "Hello Kitty", "Hello Kitty"),
@@ -47,9 +51,7 @@ public class Main {
 
         executorService.shutdown();
 
-       /* ReadFile readFile = new ReadFile("message.txt");
-        String s = readFile.readFile();
-        System.out.println(s);*/
+
 
     /*    public class Main {
 
