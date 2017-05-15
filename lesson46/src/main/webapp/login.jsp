@@ -16,6 +16,7 @@
       <input name="login" type="text">
       <input name="password" type="password">
       <input type="submit" value="Login">
+      <input name="proverka" type="text">
   </form>
 
 </body>

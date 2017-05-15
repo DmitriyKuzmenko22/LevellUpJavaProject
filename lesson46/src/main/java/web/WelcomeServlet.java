@@ -13,8 +13,13 @@ import java.io.PrintWriter;
 public class WelcomeServlet extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-   /*     resp.getOutputStream().write("<h1>Hello World</h1>".getBytes());
+/*
+        resp.getOutputStream().write("<h1>Hello World</h1>".getBytes());
+
+
 */
+
+        req.setAttribute("proverka","");
         req.getRequestDispatcher("login.jsp").forward(req,resp);// peredaem otvet klienty
 
     }
