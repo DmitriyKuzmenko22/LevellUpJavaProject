@@ -11,10 +11,11 @@
     <title>StartPage</title>
 </head>
 <body>
-<form action="/" method="post">
-    <input type="submit" name="RegisButton" value="Registration">
+<form action="/login" method="post">
     <input type="submit" name="StartLoginButton" value="Login">
-
+</form>
+<form action="/registration" method="post">
+    <input type="submit" name="RegisButton" value="Registration">
 </form>
 
 </body>

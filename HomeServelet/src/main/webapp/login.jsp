@@ -12,14 +12,13 @@
 </head>
 <body>
 
-<form action="/" method="post">
+<form action="/info" method="post">
     <span> Name </span>
     <input name="login" type="text">
     <span> Password </span>
     <input name="password" type="password">
     <input type="submit" name="LoginButton" value="Login">
-    <input type="submit" name="TestButton" value="Test">
-    <input name="proverka" type="text">
+
 </form>
 
 </body>

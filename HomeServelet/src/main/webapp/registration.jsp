@@ -12,12 +12,15 @@
 </head>
 <body>
 <form action="/registration" method="post">
-
+    <span> Your Name </span>
     <input name="login" type="text">
+    <span> Your password </span>
     <input name="password" type="password">
-    <input type="submit" name="LoginButton" value="Login">
-    <input type="submit" name="TestButton" value="Test">
-    <input name="proverka" type="text">
+
+    <span> Your date of birth </span>
+    <input name="dateBirth" type="date">
+    <input type="submit" name="LoginButton" value="Registration">
+
 </form>
 </body>
 </html>
