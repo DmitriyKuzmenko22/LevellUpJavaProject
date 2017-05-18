@@ -11,7 +11,7 @@
     <title>StartPage</title>
 </head>
 <body>
-<form action="/login" method="post">
+<form action="startPage" method="post">
     <input type="submit" name="StartLoginButton" value="Login">
 </form>
 <form action="/registration" method="post">

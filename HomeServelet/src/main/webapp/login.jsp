@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<form action="/info" method="post">
+<form action="login" method="post">
     <span> Name </span>
     <input name="login" type="text">
     <span> Password </span>
