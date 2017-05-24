@@ -11,16 +11,7 @@
     <title>Registration</title>
 </head>
 <body>
-<%--<form action="register" method="post">--%>
-  <%--  <span> Your Name </span>
-    <input name="login" type="text">
-    <span> Your password </span>
-    <input name="password" type="password">
-
-    <span> Your date of birth </span>
-    <input name="dateBirth" type="date">
-    <input type="submit" name="LoginButton" value="Registration">--%>
-      <form action="register" method="post">
+      <form action="registration" method="post">
           <span>Логин:</span><input name="login" type="text">
           <span>Пароль:</span><input name="password" type="password">
           <span>Имя:</span><input name="name" type="text">

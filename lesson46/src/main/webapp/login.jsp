@@ -13,9 +13,11 @@
 </head>
 <body>
 
-<img src="<c:url value="/images/login-img.png"/>" alt="login preview">
-
-    <form action="<%=request.getServletContext().getContextPath()%>/welcome" method="post">
+<img src="login" alt="login preview">
+<%--
+<form action="<%=request.getServletContext().getContextPath()%>/welcome" method="post">
+--%>
+    <form action="login" method="post">
         <input name="login" type="text">
         <input name="password" type="password">
         <input type="submit" value="Login">

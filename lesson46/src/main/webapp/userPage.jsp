@@ -12,8 +12,8 @@
 </head>
 <body>
 
-    <span>User name:${userName}</span><br>
-    <span>Balance:${balance}</span>
+    <span>Name:${name}</span><br>
+    <span>Last name:${lastName}</span>
 
 </body>
 </html>

@@ -1,7 +1,9 @@
-package web;
+package web.web;
 
-import entity.User;
-import userDAO.UserDAO;
+
+
+import web.entity.User;
+import web.userDAO.UserDAO;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,7 +11,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Date;
 
 /**
  * Created by Дмитрий on 14.05.2017.
@@ -17,6 +18,7 @@ import java.util.Date;
 @WebServlet("/registration")
 public class RegistrationServelet  extends HttpServlet {
     public UserDAO userDAO;
+
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -39,7 +41,7 @@ public class RegistrationServelet  extends HttpServlet {
         } else {
             req.setAttribute("name", name);
             req.setAttribute("lastName", lastName);
-            User user = new User(login, password, name, lastName, phone,email);
+            User user = new User(login,name,lastName,phone,email);
             System.out.println(user.toString());
 
             userDAO.addUser(user);

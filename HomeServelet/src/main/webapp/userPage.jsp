@@ -11,9 +11,9 @@
     <title>User info</title>
 </head>
 <body>
-
+<%--
 <span>User name: ${userName} .</span>
-<span>Balance: ${balance} .</span>
+<span>Balance: ${balance} .</span>--%>
 
 </body>
 </html>
