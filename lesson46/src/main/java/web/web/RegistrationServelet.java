@@ -22,7 +22,7 @@ public class RegistrationServelet  extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("registration.jsp").forward(req, resp);
+        req.getRequestDispatcher("registrationTwo.jsp").forward(req, resp);
     }
 
     @Override
@@ -55,7 +55,7 @@ public class RegistrationServelet  extends HttpServlet {
         /*  System.out.println(req);
 
         if (req.getParameter("RegisButton") != null) {
-            req.getRequestDispatcher("registration.jsp").forward(req, resp);
+            req.getRequestDispatcher("registrationTwo.jsp").forward(req, resp);
         }
 
         String login = req.getParameter("login");
