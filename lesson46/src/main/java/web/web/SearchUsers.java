@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * Created by Дмитрий on 18.05.2017.
  */
-@WebServlet("/search")
+@WebServlet("/searchUsers")
 
 public class SearchUsers extends HttpServlet {
     public UserDAO userDAO;
@@ -38,22 +38,22 @@ public class SearchUsers extends HttpServlet {
                     new TargetData("user11@yopmail.com", "user11")
             );
 
-            String seachMail="user9@yopmail.com";
+            String searchMail="user9@yopmail.com";
             String search="Вася";
 
             System.out.println(list.stream().filter(
-                    targetData -> targetData.getEmail().equals(seachMail)
+                    targetData -> targetData.getEmail().equals(searchMail)
                             && targetData.getUserName().equals(search)).count());
             System.out.println("sfvf");
 
 
 
             System.out.println(list.stream().filter(
-                    targetData -> targetData.getEmail().equals(seachMail)
+                    targetData -> targetData.getEmail().equals(searchMail)
                             && targetData.getUserName().equals(search)).toString());
 
             System.out.println(list.stream().filter(
-                    targetData -> targetData.getEmail().equals(seachMail)
+                    targetData -> targetData.getEmail().equals(searchMail)
                             && targetData.getUserName().equals(search)).findFirst());
 
             String welSearch = null;
