@@ -16,7 +16,7 @@ import java.io.IOException;
  * Created by Дмитрий on 14.05.2017.
  */
 @WebServlet("/registration")
-public class RegistrationServelet  extends HttpServlet {
+public class RegistrationServeletMy  extends HttpServlet {
     public UserDAO userDAO;
 
 
