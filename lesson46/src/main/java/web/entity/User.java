@@ -37,14 +37,37 @@ public class User {
     @Column(name = "email")
     private String email;
 
-    public User(String login, String name, String lastName, String phone, String email) {
+    @Column(name = "verif_key")
+    private String verif_key;
+
+    @Column(name = "access_key")
+    private boolean access_key;
+
+    public User(String login, String name, String lastName, String phone, String email, String verif_key ) {
         this.login = login;
         this.name = name;
         this.lastName = lastName;
         this.phone = phone;
         this.email = email;
+        this.access_key=false;
+        this.verif_key=verif_key;
     }
 
+    public String getVerif_key() {
+        return verif_key;
+    }
+
+    public void setVerif_key(String verif_key) {
+        this.verif_key = verif_key;
+    }
+
+    public boolean isAccess_key() {
+        return access_key;
+    }
+
+    public void setAccess_key(boolean access_key) {
+        this.access_key = access_key;
+    }
 
     public long getId() {
         return id;

@@ -41,13 +41,13 @@ public class RegistrationServeletMy  extends HttpServlet {
         } else {
             req.setAttribute("name", name);
             req.setAttribute("lastName", lastName);
-            User user = new User(login,name,lastName,phone,email);
+          /*  User user = new User(login,name,lastName,phone,email); //todo закоментил т.к не хватает параметров в конструкторе
             System.out.println(user.toString());
 
             userDAO.addUser(user);
 
 
-            req.getRequestDispatcher("userPage.jsp").forward(req, resp);
+            req.getRequestDispatcher("userPage.jsp").forward(req, resp);*/
         }
     }
 
