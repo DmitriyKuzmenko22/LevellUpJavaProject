@@ -1,5 +1,6 @@
 package web.web;
 
+import com.google.gson.Gson;
 import web.entity.User;
 import web.sender.EmailConsumer;
 import web.sender.EmailMessage;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ArrayBlockingQueue;
@@ -80,7 +82,45 @@ public class RegistrationServlet extends HttpServlet {
         executorService.execute(new EmailConsumer(queue));
         emailProducer.sendMessage(list);
 
+       // UserDAO userDAO = new UserDAO();
 
+        String query = req.getParameter("query");
+        String[] split = query.split(",");
+        String queryLogin = split[0].trim();
+        String queryPhone = split[1].trim();
+        System.out.println("queryLogin: "+queryLogin);
+        System.out.println("queryPhone: "+queryPhone);
+
+
+        List<User> userList = userDAO.read();
+        System.out.println(userList);
+
+        resp.setContentType("application/json");
+
+        PrintWriter out = resp.getWriter();
+        Gson gson = new Gson();
+
+        List a = filterListByQuery(userList, queryLogin, queryPhone);
+        gson.toJson(a, out);
 
     }
-}
+
+    private List<User> filterListByQuery(List<User> userList, String queryLogin, String queryPhone) {
+        List<User> result = new ArrayList<>();
+        for (User u : userList){
+            if (u.getLogin().contains(queryLogin)) {
+                if (u.getPhone().contains(queryPhone)) result.add(u);
+            }
+            /*if (u.getLogin().contains(queryLogin)) {
+                result.add(u);
+            }*/
+        }
+        return result;
+    }
+
+    }
+
+
+
+
+

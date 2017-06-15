@@ -57,9 +57,9 @@
             </td>
             <td>
                 <div id="gender">
-                    <input type="radio" name="gender" checked value="NOT_SPECIFIED">Not cpecified</option>
-                    <p><input type="radio" name="gender" value="MALE">Male</option></p>
-                    <p><input type="radio" name="gender" value="FEMALE">Female</option></p>
+                    <input type="radio" name="gender" disabled="disabled" checked value="NOT_SPECIFIED">Not specified</option>
+                    <p><input type="radio" name="gender" value="MALE">Male</p>
+                    <p><input type="radio" name="gender" value="FEMALE">Female</p>
                 </div>
         </tr>
         <span>
@@ -208,8 +208,8 @@
         document.getElementById('login').value = login;
         document.getElementById('email').value = email;
         document.getElementById('age').value = age;
-
         let roleSelect = document.getElementById('role').options;
+        let genderSelect = document.getElementById('gender').options;
 
         for(let i = roleSelect.length - 1; i >= 0; i--) {
             let opt = roleSelect[i];//ссілка на конкретній опшион/knopky
@@ -217,6 +217,13 @@
             if(role === opt.innerHTML) {
                 roleSelect[i].selected = true//устанавляем значение нашему индексу
             } else roleSelect[i].selected = false;//кто нам не подходит томму фалсе
+        }
+
+        for (let i=genderSelect.length-1;i>=0;i--){
+            let gen=genderSelect[i];
+            if(gender===gen.innerHTML){
+                genderSelect[i].selected=true;
+            } else genderSelect[i].selected=false;
         }
     }
 
