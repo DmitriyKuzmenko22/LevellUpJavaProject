@@ -1,0 +1,36 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="greetingBean" class="Greeting">
+        <constructor-arg name="message" value="Hello guys!!!"/>
+        <!--<property name="message" value="Hello World!!!" />-->
+    </bean>
+
+    <!--<bean id="colorCar" class="Color">
+        <constructor-arg name="s" value=""/>
+    </bean>-->
+
+
+
+    <bean id="CarAMG" class="Car">
+        <property name="maxSpeed" value="300"/>
+         <property name="model" value="AMG"/>
+        <property name="color" ref="colorCar"></property>
+    </bean>
+
+    <bean id="carsAmgTwo" class="Car">
+        <constructor-arg name="maxSpeed" value="250"></constructor-arg>
+        <constructor-arg name="color" ref="colorCar"></constructor-arg>
+        <constructor-arg name="model" value="S-class"></constructor-arg>
+    </bean>
+
+    <bean id="colorCar" class="Color" factory-method="valueOf">
+        <constructor-arg>
+            <value>BLACK</value>
+        </constructor-arg>
+    </bean>
+
+
+</beans>
