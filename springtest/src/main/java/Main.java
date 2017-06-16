@@ -12,11 +12,11 @@ public class Main {
 
 
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("application-context.xml");
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("application-context.xml");
        // Greeting greetingBean = context.getBean(Greeting.class);
        // greetingBean.sayHello();
 
-        Car car=(Car) context.getBean("CarAMG");
+     /*   Car car=(Car) context.getBean("CarAMG");
         car.whatModel();
 
         Car carsAmgTwo=(Car) context.getBean("carsAmgTwo");
@@ -26,7 +26,25 @@ public class Main {
         String s = gson.toJson(carsAmgTwo);
 
         System.out.println(s);
-        System.out.println();
+        System.out.println();*/
+
+        PC pc=context.getBean(PC.class);
+        pc.whatPC();
+
+        Gson gson=new Gson();
+
+        String s=gson.toJson(pc);
+
+        System.out.println(s);
+
+        UserService userService=context.getBean(UserService.class);
+        System.out.println(userService);
+
+
+       UserService userService1= context.getBean(UserService.class);
+        userService1.doMagic();
+
+        context.close();
 
     }
 }

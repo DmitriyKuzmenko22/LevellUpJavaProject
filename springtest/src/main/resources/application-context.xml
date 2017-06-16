@@ -12,7 +12,22 @@
         <constructor-arg name="s" value=""/>
     </bean>-->
 
+    <bean id="pc" class="PC">
+        <property name="HDD" value="SAMSUNG"></property>
+        <property name="RAM" value="7000 L"></property>
+        <property name="owner" ref="user"></property>
+    </bean>
 
+    <bean id="user" class="Owner">
+        <property name="firstName" value="Ivan"/>
+        <property name="lastName" value="Ivanov"/>
+    </bean>
+
+    <bean id="customerService" class="UserService">
+        <property name="message" value="i'm property message" />
+    </bean>
+
+    <bean class="ProfilingBeanPostProcessor" id="profilingBeanPostProcessor"></bean>
 
     <bean id="CarAMG" class="Car">
         <property name="maxSpeed" value="300"/>
