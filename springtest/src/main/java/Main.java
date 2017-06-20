@@ -2,7 +2,6 @@
  * Created by Дмитрий on 15.06.2017.
  */
 import com.google.gson.Gson;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -37,12 +36,49 @@ public class Main {
 
         System.out.println(s);
 
-        UserService userService=context.getBean(UserService.class);
-        System.out.println(userService);
+        System.out.println("____________________________");
+        /*Message message= (Message) context.getBean("printMessage");
+        message.setMessage("This is first object");
+        System.out.println(message.getMessage());
+
+        Message oneMoreMessage= (Message) context.getBean("printMessage");
+        System.out.println(oneMoreMessage.getMessage());*/
+
+        Message bean1= (Message) context.getBean("printMessage");
+        Message bean2= (Message) context.getBean("printMessage");
+        Message bean3= (Message) context.getBean("printMessage");
+
+        Message bean4= (Message) context.getBean("printMessageProt");
+        Message bean5= (Message) context.getBean("printMessageProt");
+        Message bean6= (Message) context.getBean("printMessageProt");
+
+        System.out.println(bean1+": ");
+        bean1.print();
 
 
-       UserService userService1= context.getBean(UserService.class);
-        userService1.doMagic();
+        System.out.println(bean2+": ");
+        bean2.print();
+
+        System.out.println(bean3+": ");
+        bean3.print();
+
+        System.out.println(bean4+": ");
+        bean4.print();
+
+        System.out.println(bean5+": ");
+        bean5.print();
+
+        System.out.println(bean6+": ");
+        bean6.print();
+
+        System.out.println("______________________________");
+
+    /*    UserServeciImpl userServeciImpl =context.getBean(UserServeciImpl.class);
+        System.out.println(userServeciImpl);
+
+
+       UserServeciImpl userServeciImpl1 = context.getBean(UserServeciImpl.class);
+        userServeciImpl1.doMagic();*/
 
         context.close();
 

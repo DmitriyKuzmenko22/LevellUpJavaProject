@@ -1,3 +1,4 @@
+import dao.service.Profiling;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 

@@ -8,6 +8,24 @@
         <!--<property name="message" value="Hello World!!!" />-->
     </bean>
 
+    <bean id="printMessage" class="Message" scope="singleton">
+        <property name="message" value="Hello! Thats singletone message ban"></property>
+    </bean>
+    <bean id="printMessageProt" class="Message" scope="prototype">
+        <property name="message" value="Hello! Thats prototype message ban"></property>
+    </bean>
+
+    <bean id="userDao" class="dao.impl.UserDaoImpl"
+    init-method="init">
+      <!--  <constructor-arg name="filePath" value="D://data/users.json"></constructor-arg>-->
+
+    </bean>
+
+    <bean id="userService" class="dao.service.impl.UserServeceImpl">
+        <property name="userDao" ref="userDao"></property>
+    </bean><!-- //ssilka na userdao-->
+
+
     <!--<bean id="colorCar" class="Color">
         <constructor-arg name="s" value=""/>
     </bean>-->
@@ -23,9 +41,12 @@
         <property name="lastName" value="Ivanov"/>
     </bean>
 
-    <bean id="customerService" class="UserService">
+
+<!--    <bean id="customerService" class="dao.service.UserServeciImpl">
         <property name="message" value="i'm property message" />
-    </bean>
+    </bean>-->
+
+
 
     <bean class="ProfilingBeanPostProcessor" id="profilingBeanPostProcessor"></bean>
 
