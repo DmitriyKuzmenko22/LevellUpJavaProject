@@ -12,31 +12,30 @@ import java.util.List;
 /**
  * Created by java on 16.06.2017.
  */
-public class UserServeceImpl implements UserService, InitializingBean, DisposableBean {
+public class UserServiceImpl implements UserService, InitializingBean, DisposableBean {
 
-    String message;
+    //String message;
 
     private UserDao userDao;
 
-    public UserServeceImpl(String filePath) {
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public void destroy() throws Exception {
-        System.out.println("Spring Container is destroy! Customer clean up");
+    public UserServiceImpl() {
+        System.out.println("UserService constructor called 11");
+        doMagic();
     }
 
     public void afterPropertiesSet() throws Exception {
+        System.out.println("UserService afterPropertiesSet method called 22");
         doMagic();
-        System.out.println("Init method after properties are set : " + message);
     }
+
+    public void destroy() throws Exception {
+        System.out.println("UserService destroy method called");
+    }
+
+    public void setUserDao(UserDao userDao) {
+        this.userDao = userDao;
+    }
+
 
     @Override
     public List<User> getAllUsers() {

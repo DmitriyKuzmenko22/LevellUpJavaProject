@@ -44,31 +44,31 @@ public class Main {
         Message oneMoreMessage= (Message) context.getBean("printMessage");
         System.out.println(oneMoreMessage.getMessage());*/
 
-        Message bean1= (Message) context.getBean("printMessage");
-        Message bean2= (Message) context.getBean("printMessage");
-        Message bean3= (Message) context.getBean("printMessage");
+        Message bean1= (Message) context.getBean("singleton-message");
+        Message bean2= (Message) context.getBean("singleton-message");
+        Message bean3= (Message) context.getBean("singleton-message");
 
-        Message bean4= (Message) context.getBean("printMessageProt");
-        Message bean5= (Message) context.getBean("printMessageProt");
-        Message bean6= (Message) context.getBean("printMessageProt");
+        Message bean4= (Message) context.getBean("prototype-message");
+        Message bean5= (Message) context.getBean("prototype-message");
+        Message bean6= (Message) context.getBean("prototype-message");
 
-        System.out.println(bean1+": ");
+        System.out.print(bean1 +": ");
         bean1.print();
 
 
-        System.out.println(bean2+": ");
+        System.out.print(bean2+": ");
         bean2.print();
 
-        System.out.println(bean3+": ");
+        System.out.print(bean3+": ");
         bean3.print();
 
-        System.out.println(bean4+": ");
+        System.out.print(bean4+": ");
         bean4.print();
 
-        System.out.println(bean5+": ");
+        System.out.print(bean5+": ");
         bean5.print();
 
-        System.out.println(bean6+": ");
+        System.out.print(bean6+": ");
         bean6.print();
 
         System.out.println("______________________________");
