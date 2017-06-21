@@ -15,7 +15,7 @@
 
     <bean class="Message" scope="singleton" id="singleton-message">
         <property name="message" value="Hello! That's singleton message bean"/>
-    </bean>
+    </bean> <!---->
 
     <bean class="Message" scope="prototype" id="prototype-message">
         <property name="message" value="Hello! That's prototype message bean"/>

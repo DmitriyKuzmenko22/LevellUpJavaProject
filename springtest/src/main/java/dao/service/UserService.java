@@ -8,7 +8,7 @@ import java.util.List;
  * Created by java on 20.06.2017.
  */
 public interface UserService {
-
+//
     List<User> getAllUsers();
 
     User getUserByEmail(String email);

@@ -53,7 +53,7 @@ public class UserDaoImpl implements UserDao {
         userByIdMap.put(user.getId(),user);
         idByEmailMap.put(user.getEmail(),user.getId());
     }
-
+//
     @Override
     public void deleteUser(User user) {
         userByIdMap.remove(user.getId());

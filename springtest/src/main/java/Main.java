@@ -57,7 +57,7 @@ public class Main {
 
 
         System.out.print(bean2+": ");
-        bean2.print();
+        bean2.print();// f
 
         System.out.print(bean3+": ");
         bean3.print();

@@ -27,7 +27,7 @@ public class UserServiceImpl implements UserService, InitializingBean, Disposabl
         System.out.println("UserService afterPropertiesSet method called 22");
         doMagic();
     }
-
+//
     public void destroy() throws Exception {
         System.out.println("UserService destroy method called");
     }
