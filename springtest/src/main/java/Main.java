@@ -2,6 +2,9 @@
  * Created by Дмитрий on 15.06.2017.
  */
 import com.google.gson.Gson;
+import dao.cinema.MovieSession;
+import dao.impl.cinema.CinemaServiceDaoImpl;
+import dao.impl.cinema.MovieSessionDaoImpl;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -72,6 +75,16 @@ public class Main {
         bean6.print();
 
         System.out.println("______________________________");
+
+ /*       MovieSessionDaoImpl movies=context.getBean(MovieSessionDaoImpl.class);
+        movies.soutMovies();*/
+        CinemaServiceDaoImpl cinemaServiceDao = context.getBean(CinemaServiceDaoImpl.class);
+        MovieSession movieSession=cinemaServiceDao.getMovieSession(1L);
+        String ps=gson.toJson(movieSession);
+        System.out.println(ps);
+        //System.out.println(cinemaServiceDao);
+
+
 
     /*    UserServeciImpl userServeciImpl =context.getBean(UserServeciImpl.class);
         System.out.println(userServeciImpl);

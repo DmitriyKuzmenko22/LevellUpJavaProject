@@ -38,7 +38,7 @@ public class UserFileDaoImpl implements UserDao {
     }
 
     @Override
-    public User getUserByud(Long id) {
+    public User getUserById(Long id) {
         return null;
     }
 

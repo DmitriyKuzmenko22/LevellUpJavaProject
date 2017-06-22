@@ -49,7 +49,7 @@ public class UserServiceImpl implements UserService, InitializingBean, Disposabl
 
     @Override
     public User getUserById(Long id) {
-        return userDao.getUserByud(id);
+        return userDao.getUserById(id);
     }
 
     @Override

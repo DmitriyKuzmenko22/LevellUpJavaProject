@@ -25,6 +25,20 @@
         <!--<constructor-arg name="filePath" value="D://data/users.json"/>-->
     </bean>
 
+<!--
+    <bean id="movieSession" class="dao.impl.cinema.MovieSessionDaoImpl" init-method="init"></bean>
+-->
+
+    <bean id="filmDao" class="dao.impl.cinema.FilmDaoImpl" init-method="init"></bean>
+    <bean id="movieSession" class="dao.impl.cinema.MovieSessionDaoImpl" init-method="init"></bean>
+    <bean id="orderDao" class="dao.impl.cinema.OrderDaoImpl" ></bean>
+
+    <bean id="cinemaService" class="dao.impl.cinema.CinemaServiceDaoImpl">
+        <property name="filmDao" ref="filmDao"></property>
+        <property name="movieSessionDao" ref="movieSession"></property>
+        <property name="orderDao" ref="orderDao"></property>
+    </bean>
+
    <!-- <bean id="userService" cladao.service.impl.UserServiceImplImpl">
         <property name="userDao" ref="userDao"></property>
     </bean>&lt;!&ndash; //ssilka na userdao&ndash;&gt;-->

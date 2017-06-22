@@ -9,7 +9,7 @@ public class User {
     private String email;
     private String firstName;
     private String lastName;
-    private double balance=100;
+    private double balance;
 //
     public User() {
     }
