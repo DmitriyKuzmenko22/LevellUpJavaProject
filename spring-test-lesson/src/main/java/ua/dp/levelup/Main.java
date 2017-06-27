@@ -4,8 +4,13 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import ua.dp.levelup.core.model.Film;
+import ua.dp.levelup.core.model.MovieSession;
 import ua.dp.levelup.dao.FilmDao;
+import ua.dp.levelup.dao.MovieSessionDao;
+import ua.dp.levelup.service.MovieSessionService;
 import ua.dp.levelup.service.UserService;
+
+import java.util.Date;
 
 /**
  * @author Alexandr Shegeda on 13.06.2017.
@@ -62,15 +67,24 @@ public class Main {
       System.out.println("Call method updateUser()");
       service.updateUser(u);*/
 
-        Film film=new Film("Transforms","transmormers history world robots",2.29D);
-
+      /*  Film film=new Film("Transforms","transmormers history world robots",2.29D);
+*/
 /*
         HibernateTemplate template=context.getBean(HibernateTemplate.class);
 */
 
         /*template.save(film);*/
-        FilmDao filmDao=context.getBean(FilmDao.class);
-        filmDao.createFilm(film);
+      /*  FilmDao filmDao=context.getBean(FilmDao.class);
+        filmDao.createFilm(film);*/
+
+        MovieSessionService bean=context.getBean(MovieSessionService.class);
+
+
+
+
+        /*bean.createMovieSession(new MovieSession(1L,new Date(),new Date(),5,70,120))*/;
+
+        bean.getMovieSessionById();
 
         context.close();
     }

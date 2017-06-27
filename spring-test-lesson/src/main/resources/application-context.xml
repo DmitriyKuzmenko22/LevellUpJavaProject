@@ -4,7 +4,12 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-<context:property-placeholder location="classpath*:db-config.properties"/>
+<context:property-placeholder location="classpath*:db-config.properties,dev.properties"/>
+
+    <context:annotation-config/>
+
+    <context:component-scan base-package="ua.dp.levelup"/>
+
 
 <bean class="ua.dp.levelup.ProfilingBeanPostProcessor" id="profilingBeanPostProcessor"/>
 
@@ -47,7 +52,7 @@
 
 <bean class="ua.dp.levelup.dao.impl.OrderDaoImpl" id="orderDao"/>
 
-<bean class="ua.dp.levelup.dao.impl.MovieSessionDaoImpl" id="movieSessionDao"/>
+<!--<bean class="ua.dp.levelup.dao.impl.MovieSessionDaoImpl" id="movieSessionDao"/> this comment-->
 
 <bean class="ua.dp.levelup.service.impl.OrderServiceImpl" id="orderService">
     <property name="orderDao" ref="orderDao"/>
@@ -57,9 +62,9 @@
     <property name="filmDao" ref="filmDao"/>
 </bean>
 
-<bean class="ua.dp.levelup.service.impl.MovieSessionServiceImpl" id="movieSessionService">
-    <property name="movieSessionDao" ref="movieSessionDao"/>
-</bean>
+<!--<bean class="ua.dp.levelup.service.impl.MovieSessionServiceImpl" id="movieSessionService">-->
+    <!--<property name="movieSessionDao" ref="movieSessionDao"/> this comment-->
+<!--</bean>-->
 
 <!-- Hibernate config -->
 
