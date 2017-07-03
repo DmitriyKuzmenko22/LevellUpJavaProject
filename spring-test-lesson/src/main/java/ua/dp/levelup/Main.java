@@ -84,7 +84,7 @@ public class Main {
 
         /*bean.createMovieSession(new MovieSession(1L,new Date(),new Date(),5,70,120))*/;
 
-        bean.getMovieSessionById();
+        bean.getMovieSessionById(1L);
 
         context.close();
     }

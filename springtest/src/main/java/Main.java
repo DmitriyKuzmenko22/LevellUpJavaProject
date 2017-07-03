@@ -5,6 +5,7 @@ import com.google.gson.Gson;
 import dao.cinema.MovieSession;
 import dao.impl.cinema.CinemaServiceDaoImpl;
 import dao.impl.cinema.MovieSessionDaoImpl;
+import dao.service.impl.UserServiceImpl;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -92,6 +93,10 @@ public class Main {
 
        UserServeciImpl userServeciImpl1 = context.getBean(UserServeciImpl.class);
         userServeciImpl1.doMagic();*/
+
+        UserServiceImpl userService=context.getBean(UserServiceImpl.class);
+        userService.doMagic();
+        System.out.println("UserServiceImpl 777 = " + userService);
 
         context.close();
 

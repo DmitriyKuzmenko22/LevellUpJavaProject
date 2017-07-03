@@ -25,6 +25,8 @@ public class FilmDaoImpl implements FilmDao {
         for (Film m :
                 films) {
             createFilm(m);
+
+            System.out.println("Init method happened");
         }
     }
 
