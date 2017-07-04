@@ -21,7 +21,6 @@ public class MovieSessionDaoImpl implements MovieSessionDao {
     @Autowired
     private HibernateTemplate template;
 
-
     @Value(value = "${my.value:default-value}")
     private String value;
 

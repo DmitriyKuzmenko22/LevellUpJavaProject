@@ -1,26 +1,15 @@
 package ua.dp.levelup;
 
-import com.google.gson.Gson;
 import org.hibernate.Hibernate;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import ua.dp.levelup.core.model.Film;
-import ua.dp.levelup.core.model.MovieSession;
 import ua.dp.levelup.core.model.Order;
 import ua.dp.levelup.core.model.Ticket;
 import ua.dp.levelup.dao.OrderDao;
 import ua.dp.levelup.dao.TicketDao;
-import ua.dp.levelup.service.FilmService;
-import ua.dp.levelup.service.MovieSessionService;
-import ua.dp.levelup.service.impl.FilmServiceImpl;
-import ua.dp.levelup.service.impl.MovieSessionServiceImpl;
-import ua.dp.levelup.service.impl.OrderServiceImpl;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 /**
  * @author Alexandr Shegeda on 13.06.2017.
@@ -29,7 +18,7 @@ public class Main {
 
 
     public static void main(String[] args) throws ParseException {
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("application-context.xml");
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("WEB-INF/application-context.xml");
 
 //        Message bean1 = (Message)context.getBean("singleton-message");
 //        Message bean2 = (Message)context.getBean("singleton-message");
