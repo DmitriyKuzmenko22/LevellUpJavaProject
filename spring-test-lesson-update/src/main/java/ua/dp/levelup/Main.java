@@ -1,12 +1,17 @@
 package ua.dp.levelup;
 
 import org.hibernate.Hibernate;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.ImportResource;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import ua.dp.levelup.core.model.Film;
+import ua.dp.levelup.core.model.MovieSession;
 import ua.dp.levelup.core.model.Order;
 import ua.dp.levelup.core.model.Ticket;
 import ua.dp.levelup.dao.OrderDao;
 import ua.dp.levelup.dao.TicketDao;
+import ua.dp.levelup.service.impl.MovieSessionServiceImpl;
 
 import java.text.ParseException;
 import java.util.List;
@@ -16,9 +21,12 @@ import java.util.List;
  */
 public class Main {
 
-
     public static void main(String[] args) throws ParseException {
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("WEB-INF/application-context.xml");
+
+
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("src/main/webapp/WEB-INF/applicationContext.xml");
+
+
 
 //        Message bean1 = (Message)context.getBean("singleton-message");
 //        Message bean2 = (Message)context.getBean("singleton-message");
@@ -119,7 +127,9 @@ public class Main {
         orderService.createOrder(order,ticket);*/
 
 
-
+        MovieSessionServiceImpl movieSessionService=context.getBean(MovieSessionServiceImpl.class);
+        MovieSession bean= movieSessionService.getMovieSessionById(64L);
+        System.out.println(bean);
         Long orderId = 75L;
         Order order = orderDao.getOrderById(orderId);
 

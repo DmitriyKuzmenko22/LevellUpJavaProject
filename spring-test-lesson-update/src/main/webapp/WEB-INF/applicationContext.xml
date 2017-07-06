@@ -96,11 +96,11 @@
     <bean class="org.springframework.orm.hibernate5.HibernateTransactionManager" id="transactionManager">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
-
+<!--
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" id="internalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/pages"></property>
         <property name="suffix" value=".jsp"></property>
-    </bean>
+        </bean>-->
 
     <!--<bean class="org.springframework.beans.factory.config.PropertiesFactoryBean">-->
         <!--<property name="locations">-->
