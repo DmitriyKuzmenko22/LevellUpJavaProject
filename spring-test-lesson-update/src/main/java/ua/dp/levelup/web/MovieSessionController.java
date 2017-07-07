@@ -1,5 +1,7 @@
 package ua.dp.levelup.web;
 
+import com.sun.org.apache.xpath.internal.operations.Mod;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -10,6 +12,7 @@ import ua.dp.levelup.dao.impl.MovieSessionDaoImpl;
 import ua.dp.levelup.service.MovieSessionService;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by java on 04.07.2017.
@@ -17,6 +20,9 @@ import java.util.Date;
 @Controller
 @RequestMapping("/movie")
 public class MovieSessionController {
+
+    @Autowired
+    private  MovieSessionService movieSessionService;
 
     @RequestMapping("/")
     @ResponseBody
@@ -32,13 +38,14 @@ public class MovieSessionController {
 
     @RequestMapping("/list")
     public ModelAndView getAllMovieSessions() {
-        return new ModelAndView("movie-session-page");
+
+        List<MovieSession> allMovieSessions = movieSessionService.getAllMovieSessions();
+        ModelAndView modelAndView=new ModelAndView("movie-session-page"); //создаем обьект на основе муви сессион пєйдж
+        //ModelAndView  обьект которіе передает страницу с данніми
+
+        modelAndView.addObject("allMovieSessions",allMovieSessions);
+        return modelAndView;
     }
 
-    /*@RequestMapping("/seans")
-    @ResponseBody
-    public MovieSession getAllMovieSession(){
-        MovieSession bean=movieSessionDao.gex`tMovieSessionById(62L);
-       return bean;
-    }*/
+
 }

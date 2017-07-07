@@ -14,7 +14,7 @@ import java.util.List;
 @Service
 public class MovieSessionServiceImpl implements MovieSessionService {
 
-    @Autowired
+
   private MovieSessionDao movieSessionDao;
 
   @Autowired
