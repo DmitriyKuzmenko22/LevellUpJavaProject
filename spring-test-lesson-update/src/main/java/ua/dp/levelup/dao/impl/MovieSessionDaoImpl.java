@@ -36,12 +36,12 @@ public class MovieSessionDaoImpl implements MovieSessionDao {
 
     @Override
     public void deleteMovieSession(MovieSession movieSession) {
-        template.delete(MovieSession.class);
+        template.delete(movieSession);
     }
 
     @Override
     public void updateMovieSession(MovieSession movieSession) {
-        template.update(MovieSession.class);
+        template.update(movieSession);
 
     }
 

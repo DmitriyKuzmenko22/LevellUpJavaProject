@@ -14,52 +14,55 @@
 <body>
 
 <h1>Movie list:</h1>
-<c:forEach var="session" items="${allMovieSessions}"> <%--к каждому єлементу будем обращаться по имени сессионс
-    --%>
+<%--<div> рабочий вариат с лессона
+    movieSessionId|filmId|sessionStartDate|sessionStartTime|hallNumber|standardTicketPrice|comfortTicketPrice
+</div>--%>
 
-    <%--<div>
-        <span>c:out value="${session.movieSessionId}"</span> &lt;%&ndash;обращаемся через точку и обращаемся к полям&ndash;%&gt;
-        <span>c:out value="${session.filmId}"</span>
-        <span>c:out value="${session.sessionStartDate}"</span>
-        <span>c:out value="${session.sessionStartTime}"</span>
-    </div>--%> <%--можно и так--%>
-    <div>movieSessionId|filmId|sessionStartDate|sessionStartTime|hallNumber|standardTicketPrice|comfortTicketPrice</div>|
-
-    <div>
+<table bordercolor="red" border="2" width="100%">
+    <thead>
+    <tr>
+        <td>movieSessionId</td>
+        <td>filmId</td>
+        <td>sessionStartDate</td>
+        <td>sessionStartTime</td>
+        <td>hallNumber</td>
+        <td>standardTicketPrice</td>
+        <td>comfortTicketPrice</td>
+    </tr>
+    </thead>
+    <tbody>
+<c:forEach var="session" items="${allMovieSessions}"> <%--к каждому єлементу будем обращаться по имени сессионс --%>
+  <%--  <div>
         <span><c:out value="${session.movieSessionId}"/></span>
-       <%-- <h2>|</h2>--%>
         <span><c:out value="${session.filmId}"/></span>
-       <%-- <h2>|</h2>--%>
         <span><c:out value="${session.sessionStartDate}"/></span>
-       <%-- <h2>|</h2>--%>
         <span><c:out value="${session.sessionStartTime}"/></span>
-       <%-- <h2>|</h2>--%>
         <span><c:out value="${session.hallNumber}"/></span>
-       <%-- <h2>|</h2>--%>
         <span><c:out value="${session.standardTicketPrice}"/></span>
-       <%-- <h2>|</h2>--%>
         <span><c:out value="${session.comfortTicketPrice}"/></span>
-      <%--  <h2>|</h2>--%>
-    </div>
-<%--
-    <div> mojno i tak
-        <span>${session.movieSessionId}|/></span>
-            &lt;%&ndash; <h2>|</h2>&ndash;%&gt;
-        <span>${session.filmId}|/></span>
-            &lt;%&ndash; <h2>|</h2>&ndash;%&gt;
-        <span>${session.sessionStartDate}|/></span>
-            &lt;%&ndash; <h2>|</h2>&ndash;%&gt;
-        <span>${session.sessionStartTime}|/></span>
-            &lt;%&ndash; <h2>|</h2>&ndash;%&gt;
+    </div>--%>
+
+    <tr>
+        <td><c:out value="${session.movieSessionId}"/></td>
+        <td><c:out value="${session.filmId}"/></td>
+        <td><c:out value="${session.sessionStartDate}"/></td>
+        <td><c:out value="${session.sessionStartTime}"/></td>
+        <td><c:out value="${session.hallNumber}"/></td>
+        <td><c:out value="${session.standardTicketPrice}"/></td>
+        <td><c:out value="${session.comfortTicketPrice}"/></td>
+    </tr>
+   <%-- <div> рабочий вариант с лессона
+        <span>${session.movieSessionId}|</span>
+        <span>${session.filmId}|</span>
+        <span>${session.sessionStartDate}|</span>
+        <span>${session.sessionStartTime}|</span>
         <span>${session.hallNumber}|/></span>
-            &lt;%&ndash; <h2>|</h2>&ndash;%&gt;
-        <span>${session.standardTicketPrice}|/></span>
-            &lt;%&ndash; <h2>|</h2>&ndash;%&gt;
-        <span>${session.comfortTicketPrice}|/></span>
-            &lt;%&ndash;  <h2>|</h2>&ndash;%&gt;
+        <span>${session.standardTicketPrice}|</span>
+        <span>${session.comfortTicketPrice}|</span>
     </div>--%>
 </c:forEach>
-
+    </tbody>
+    </table>
 
 
 </body>
