@@ -1,32 +1,42 @@
 package ua.dp.levelup.core.model;
 
+import com.google.gson.Gson;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.io.File;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.util.Arrays;
 
-/**
- * Created by Дмитрий on 10.07.2017.
- */
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "HALL_BOOKING")
+@Table(name = "HALLS")
 
 public class Hall {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long hallId;
+    private long id;
 
-    private long row;
-    private long place;
+    @Column
+    private File seatsAndRanges;
 
-    public Hall(long row, long place) {
-        this.row = row;
-        this.place = place;
+
+    @Column
+    private int seatsNumberInHall;
+
+    @Column
+    private int rowsNumberInHall;
+
+    public Hall(int seatsNumberInHall, int rowsNumberInHall) {
+        this.seatsNumberInHall = seatsNumberInHall;
+        this.rowsNumberInHall = rowsNumberInHall;
     }
 }

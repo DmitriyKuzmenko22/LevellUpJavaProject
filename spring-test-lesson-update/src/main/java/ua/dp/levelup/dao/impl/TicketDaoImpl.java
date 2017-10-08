@@ -7,6 +7,9 @@ import org.springframework.transaction.annotation.Transactional;
 import ua.dp.levelup.core.model.Ticket;
 import ua.dp.levelup.dao.TicketDao;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by java on 27.06.2017.
  */
@@ -32,5 +35,26 @@ public class TicketDaoImpl implements TicketDao {
     public void updateTicket(Ticket ticket) {
         template.update(Ticket.class);
 
+    }
+
+    @Override
+    public List<Ticket> getAllTickets() {
+        return template.loadAll(Ticket.class);
+    }
+
+    @Override
+    public List<Ticket> getTicketsOfMovieSession(Long sessionId) {
+
+        List<Ticket> allTickets = getAllTickets();
+        List<Ticket> ticketsOfMovieSession=new ArrayList<>();
+
+        for (Ticket t :
+                allTickets) {
+            if (t.getMovieSessionId()==sessionId){
+                ticketsOfMovieSession.add(t);
+            }
+            
+        }
+        return ticketsOfMovieSession;
     }
 }

@@ -13,12 +13,14 @@ import java.util.List;
  * @author Alexandr Shegeda on 23.06.17.
  */
 @Transactional
-@Repository
+@Repository(value = "FilmDap")
 public class FilmDaoImpl implements FilmDao {
 
-    @Autowired
+
     private HibernateTemplate hibernateTemplate;
 
+
+    @Autowired
     public void setHibernateTemplate(HibernateTemplate hibernateTemplate) {
         this.hibernateTemplate = hibernateTemplate;
     }

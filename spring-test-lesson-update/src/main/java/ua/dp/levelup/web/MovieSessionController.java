@@ -1,23 +1,26 @@
 package ua.dp.levelup.web;
 
+import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+
+
 import ua.dp.levelup.core.model.Film;
+import ua.dp.levelup.core.model.Hall;
 import ua.dp.levelup.core.model.MovieSession;
+import ua.dp.levelup.core.model.Ticket;
+import ua.dp.levelup.service.HallService;
 import ua.dp.levelup.service.MovieSessionService;
+import ua.dp.levelup.service.TicketService;
+
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.Instant;
-import java.time.ZonedDateTime;
 import java.util.Date;
 import java.util.List;
+
 
 /**
  * Created by java on 04.07.2017.
@@ -29,18 +32,23 @@ public class MovieSessionController {
     @Autowired
     private MovieSessionService movieSessionService;
 
+    private HallService hallService;
+    private TicketService ticketService;
+
     @RequestMapping("/")
     @ResponseBody
     public Film film() {
         return new Film("Bla", "Bla-bla", 24D);
     }
 
-    @RequestMapping(value = "/add-session",method = RequestMethod.GET)
-    public ModelAndView getAddMovieSessionPage(){
+    /*@RequestMapping(value = "/add-session", method = RequestMethod.GET)
+    public ModelAndView getAddMovieSessionPage() {
         return new ModelAndView("add-movie-session");
-    }
+    }*/
 
-    @RequestMapping(value = "/add-session", method = RequestMethod.POST)
+    /*
+    OldWork*/
+/*    @RequestMapping(value = "/add-session", method = RequestMethod.POST)
     public String addMovieSession(
             @RequestParam("filmId") long filmId,
             @RequestParam int hallNumber,
@@ -51,7 +59,24 @@ public class MovieSessionController {
         movieSessionService.createMovieSession(new MovieSession(filmId,new Date(),new Date(),hallNumber,
                 standardTicketPrice,comfortTicketPrice));
         return "redirect:list";
+    }*/
+
+
+    @RequestMapping(value = "/add-session", method = RequestMethod.GET)
+    public ModelAndView getAddMovieSessionPage() {
+        ModelAndView modelAndView = new ModelAndView("add-movie-session");
+        modelAndView.addObject("session", new MovieSession());
+        return modelAndView;
     }
+
+    @RequestMapping(value = "/add-session", method = RequestMethod.POST, consumes = "application/json")
+    public ModelAndView addMovieSession(@RequestBody MovieSession session) {
+        movieSessionService.createMovieSession(session);
+
+        return new ModelAndView("redirect:/movie/list");
+        /*return "redirect:/movie/list";*/
+    }
+
 
     @RequestMapping("/welcome")
     public ModelAndView welcome() {
@@ -62,15 +87,15 @@ public class MovieSessionController {
     public ModelAndView getAllMovieSessions() {
 
         List<MovieSession> allMovieSessions = movieSessionService.getAllMovieSessions();
-        ModelAndView modelAndView=new ModelAndView("movie-session-page"); //создаем обьект на основе муви сессион пєйдж
+        ModelAndView modelAndView = new ModelAndView("movie-session-page"); //создаем обьект на основе муви сессион пєйдж
         //ModelAndView  обьект которіе передает страницу с данніми
 
-        modelAndView.addObject("allMovieSessions",allMovieSessions);
+        modelAndView.addObject("allMovieSessions", allMovieSessions);
         return modelAndView;
     }
 
-    @RequestMapping(value = "/update-session",method = RequestMethod.GET)
-    public ModelAndView updateAddMovieSessionPage(){
+    @RequestMapping(value = "/update-session", method = RequestMethod.GET)
+    public ModelAndView updateAddMovieSessionPage() {
         return new ModelAndView("update-session");
     }
 
@@ -84,8 +109,8 @@ public class MovieSessionController {
             @RequestParam String standardTicketPrice,
             @RequestParam String comfortTicketPrice
     ) throws ParseException {
-        Date dateStart = new SimpleDateFormat( "yyyy-dd-MM" ).parse(sessionStartDate);
-        Date dateSessionStart = new SimpleDateFormat( "HH:mm" ).parse(sessionStartTime);
+        Date dateStart = new SimpleDateFormat("yyyy-dd-MM").parse(sessionStartDate);
+        Date dateSessionStart = new SimpleDateFormat("HH:mm").parse(sessionStartTime);
         MovieSession movieSessionById = movieSessionService.getMovieSessionById(Long.parseLong(movieSessionId));
         movieSessionById.setFilmId(Long.parseLong(filmId));
         movieSessionById.setSessionStartDate(dateStart);
@@ -98,18 +123,34 @@ public class MovieSessionController {
         return "redirect:list";
     }
 
-    @RequestMapping(value = "/delete-session",method = RequestMethod.GET)
-    public ModelAndView deleteMovieSessionPage(){
+    @RequestMapping(value = "/delete-session", method = RequestMethod.GET)
+    public ModelAndView deleteMovieSessionPage() {
         return new ModelAndView("delete-session-page");
     }
 
-    @RequestMapping(value = "/delete-session",method = RequestMethod.POST)
-    public String deleteMovieSession(@RequestParam String movieSessionId){
+    @RequestMapping(value = "/delete-session", method = RequestMethod.POST)
+    public String deleteMovieSession(@RequestParam String movieSessionId) {
         MovieSession movieSessionById = movieSessionService.getMovieSessionById(Long.parseLong(movieSessionId));
         movieSessionService.deleteMovieSession(movieSessionById);
 
         return "redirect:list";
     }
 
+    @RequestMapping(value = "/hall", method = RequestMethod.GET)
+    public ModelAndView createHall() {
 
+
+        List<Hall> allHalls = hallService.getAllHalls();
+        ModelAndView modelAndView = new ModelAndView("Hall");
+        modelAndView.addObject("allHalls", new Gson().toJson(allHalls));
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/hall", method = RequestMethod.POST)
+    @ResponseBody
+    public List<Ticket> getHallJson(@RequestParam String hallId) {
+        Long id = Long.parseLong(hallId);
+        System.out.println(id);
+        return ticketService.getTicketsOfMovieSession(id);
+    }
 }

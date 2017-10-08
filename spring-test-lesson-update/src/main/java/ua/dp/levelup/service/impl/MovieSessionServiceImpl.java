@@ -48,4 +48,15 @@ public class MovieSessionServiceImpl implements MovieSessionService {
   public List<MovieSession> getAllMovieSessions() {
     return movieSessionDao.getAllMovieSessions();
   }
+
+  /*@Scheduled(cron = "* * 20 * * ?")
+  private void updateMovieSessionsForToday() {
+    System.out.println(new Date() + " updateMovieSessionsForToday() scheduled!");
+  }*/
+
+
+  /*@Scheduled(fixedRate = 5000)
+  public void reportCurrentTime() {
+    System.out.println(new Date()+ " schedule");
+  }*/
 }

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 import org.hibernate.annotations.Type;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -15,8 +16,6 @@ import javax.persistence.*;
  */
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
 @ToString
 @Entity
 @Table(name = "MOVIE_SESSIONS")
@@ -26,12 +25,14 @@ public class MovieSession {
   @GeneratedValue(strategy = GenerationType.AUTO)
   private long movieSessionId;
   private long filmId;
-  /*
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
-  */
+
   @Temporal(TemporalType.DATE)
+  @JsonFormat
+          (shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
   private Date sessionStartDate;
   @Temporal(TemporalType.TIME)
+  @JsonFormat
+          (shape = JsonFormat.Shape.STRING, pattern = "hh:mm")
   private Date sessionStartTime;
   private int hallNumber;
   private double standardTicketPrice;
@@ -45,6 +46,9 @@ public class MovieSession {
     this.hallNumber = hallNumber;
     this.standardTicketPrice = standardTicketPrice;
     this.comfortTicketPrice = comfortTicketPrice;
+  }
+
+  public MovieSession() {
   }
 
   public Long getMovieSessionId() {

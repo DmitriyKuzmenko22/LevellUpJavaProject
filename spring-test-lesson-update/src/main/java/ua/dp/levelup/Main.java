@@ -1,9 +1,6 @@
 package ua.dp.levelup;
 
 import org.hibernate.Hibernate;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.ImportResource;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import ua.dp.levelup.core.model.Film;
 import ua.dp.levelup.core.model.MovieSession;
