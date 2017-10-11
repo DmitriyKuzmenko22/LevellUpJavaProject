@@ -1,27 +1,70 @@
 package dao;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.util.List;
+
 /**
  * Created by java on 16.06.2017.
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class User {
 
-    private Long id;
-    private String email;
+    /*private Long id;*/
+    private String name;
+    @JsonProperty("atp.age")
+    private int age;
+    private List<String> messages;
+   /* private String email;
     private String firstName;
     private String lastName;
-    private double balance;
+    private double balance;*/
 //
     public User() {
     }
 
-    public User(Long id, String email, String firstName, String lastName) {
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public List<String> getMessages() {
+        return messages;
+    }
+
+    public void setMessages(List<String> messages) {
+        this.messages = messages;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", messages=" + messages +
+                '}';
+    }
+
+    /*public User(Long id, String email, String firstName, String lastName) {
         this.id = id;
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
-    }
+    }*/
 
-    public Long getId() {
+  /*  public Long getId() {
         return id;
     }
 
@@ -78,5 +121,5 @@ public class User {
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 '}';
-    }
+    }*/
 }
